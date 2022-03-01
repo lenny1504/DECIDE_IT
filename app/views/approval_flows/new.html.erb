@@ -1,0 +1,5 @@
+<%= simple_form_for [@approval_flow] do |f| %>
+        <%= f.input :name, label: "Approval Flow Name" %>
+        <%= f.input :description, label: 'Description of the approval flow' %>
+        <%= f.submit "Submit ", class: "btn btn-primary" %>
+<%  end %>
