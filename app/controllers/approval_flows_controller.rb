@@ -1,0 +1,2 @@
+class ApprovalFlowsController < ApplicationController
+end
