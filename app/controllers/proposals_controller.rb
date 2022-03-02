@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
 
   def new
-    @proposal= Proposal.new
+    @proposal = Proposal.new
   end
 
   def create
@@ -24,7 +24,10 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
-    @proposal = Proposal.new
+  end
+
+  def edit
+    @proposal = Proposal.find(params[:id])
   end
 
 
