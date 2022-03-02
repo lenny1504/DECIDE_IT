@@ -1,4 +1,13 @@
-<%= simple_form_for [@comment] do |f| %>
-        <%= f.input :content, label: "Make a comment" %>
-        <%= f.submit "Submit ", class: "btn btn-primary" %>
-<%  end %>
+<div class="container pt-5 mb-5" >
+  <h2 class="all-forms" style="text-align:center">Create a new character</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <%= simple_form_for [@comment] do |f| %>
+                <%= f.input :content, label: "Make a comment" %>
+                <%= f.submit "Submit ", class: "btn btn-primary" %>
+        <%  end %>
+      </div>
+    </div>
+  </div>
+</div>

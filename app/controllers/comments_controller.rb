@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     # @proposal.approval_flow.comment
     # @comment.proposal = Proposal.find(params[:proposal_id])
     if @comment.save
-      redirect_to proposal_path(@proposal.step), notice: "Your comment has been posted"
+      redirect_to proposal_path(@proposal.id), notice: "Your comment has been posted"
     else
       render "comment/new"
     end
