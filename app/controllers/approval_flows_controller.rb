@@ -13,6 +13,7 @@ class ApprovalFlowsController < ApplicationController
     if @approval_flow.save
       redirect_to approval_flow_path(@approval_flow), notice: "Your approval flow has been created"
     else
+      # not sure about this else
       render "approval_flow/new"
     end
   end
