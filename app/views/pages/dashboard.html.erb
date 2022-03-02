@@ -1,4 +1,8 @@
-<h1>Dashboard <%= @user.first_name %> <%= @user.last_name %></h1>
+
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h2>Welcome to your Dashboard!</h2>
+
+<h3>My proposals</h3>
 <ul>
     <% @proposals.each do |proposal| %>
         <li>
@@ -8,3 +12,6 @@
         </li>
     <% end  %>
 </ul>
+
+
+<h3>Aproval requests</h3>

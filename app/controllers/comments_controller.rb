@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
 
 # see all comments for one proposal »» Show View of Proposal = /proposals/:id
 # show step on proposal show and enable posibility of commenting
-
-  def index
-    #@proposal = Proposal.find(params[:id]) not yet related!
-    @approval_flow = ApprovalFlow.find()
-    @comment = Comment.new
+  def index_coments_of_step
+    # @proposal = Proposal.find(params[:id]) not yet related!
+    # find comments for that particular step
+    @step = Step.find(params[:id])
+    @comments = Comment.where(step_id: @step)
   end
 
   # Create a new comment (related to one step / approval flow / proposal !!??)

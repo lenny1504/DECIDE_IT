@@ -3,8 +3,8 @@
 <h1>All Proposals</h1>
 
 <% @proposals.each do |proposal| %>
-  <h2><%= character.title%></h2>
+  <h2><%= proposal.title%></h2>
   <p><%= proposal.description%></p>
-  <p><%= proposal.creator.username %></p>
+  <p><%= proposal.creator.email %></p>
 
 <% end %>

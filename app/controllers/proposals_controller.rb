@@ -28,7 +28,6 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
-    @proposal = Proposal.new
   end
 
 

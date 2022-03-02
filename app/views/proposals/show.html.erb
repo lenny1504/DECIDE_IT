@@ -1,10 +1,6 @@
 
-<h1>Your proposal </h1>
+<h1><%= @proposal.title %></h1>
+<p><%= @proposal.description %></p>
+<p><strong>Status:</strong> <%= @proposal.status  %></h3>
 
-
-<%= @proposal.title %>
-<%= @proposal.description %>
-<%= @proposal.status  %>
-
-<%# <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
-
+<%#= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
