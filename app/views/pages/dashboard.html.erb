@@ -1,0 +1,10 @@
+<h1>Dashboard <%= @user.first_name %> <%= @user.last_name %></h1>
+<ul>
+    <% @proposals.each do |proposal| %>
+        <li>
+            <p><%= proposal.title %></p>
+            <p><%= proposal.description %></p>
+            <p><%= link_to "Proposal Page", proposal_path(proposal)  %>
+        </li>
+    <% end  %>
+</ul>

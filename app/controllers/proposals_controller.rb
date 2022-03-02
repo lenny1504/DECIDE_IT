@@ -8,7 +8,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     @proposal.creator = current_user
     if @proposal.save
-      redirect_to @proposal_path(@proposal.id), notice: 'Proposal was successfully created.'
+      redirect_to proposal_path(@proposal.id), notice: 'Proposal was successfully created.'
     else
       render :new
     end
@@ -16,7 +16,7 @@ class ProposalsController < ApplicationController
 
   def update
     if @proposal.update(proposal_params)
-      redirect_to @proposal_path(@character)
+      redirect_to proposal_path(@character)
     else
       render :edit
     end
