@@ -1,3 +1,5 @@
+<%# this could be a modal in the proposal show page with a button that shows if @proposal.approval_flow is nil %>
+
 <%= simple_form_for [@approval_flow] do |f| %>
         <%= f.input :name, label: "Approval Flow Name" %>
         <%= f.input :description, label: 'Description of the approval flow' %>
