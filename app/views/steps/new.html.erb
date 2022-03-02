@@ -1,0 +1,5 @@
+<h1>New Step</h1>
+<%= simple_form_for [@proposal, @approval_flow, @step] do |f| %>
+        <%= f.input :approver, label: "Approver email" %> <%# We need to give the possibilty to chose among created users? or just input the email? %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+<%  end %>
