@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
     if @proposal.save
       redirect_to @proposal_path(@proposal.id), notice: 'Proposal was successfully created.'
     else
-      render :new
+      render "proposals/new"
     end
   end
 
@@ -18,7 +18,7 @@ class ProposalsController < ApplicationController
     if @proposal.update(proposal_params)
       redirect_to @proposal_path(@character)
     else
-      render :edit
+      render "proposals/edit"
     end
   end
 
@@ -29,7 +29,7 @@ class ProposalsController < ApplicationController
 
 
   def archive
-
+    @proposal.archive = true
   end
 
   def reject
