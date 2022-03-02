@@ -29,7 +29,7 @@ class ProposalsController < ApplicationController
 
 
   def archive
-
+    @proposal.archive = true
   end
 
   def reject
