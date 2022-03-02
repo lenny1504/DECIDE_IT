@@ -17,7 +17,7 @@
 
 
 <% if @action_step  %>
-  <%= link_to "Approve Proposal", step_approve_path(@action_step) %>
-  <%= link_to "Reject Proposal", step_reject_path(@action_step) %>
-  <%= link_to "Request Change", step_request_change_path(@action_step) %>
+  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch" %>
+  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch" %>
+  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch" %>
 <% end  %>

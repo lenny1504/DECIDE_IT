@@ -7,7 +7,6 @@ class StepsController < ApplicationController
 
   def create
     @step = Step.new(status: "created")
-    # params = step_params
     @approver = User.find_by(email: step_params["approver"])
     @step.approver = User.find_by(email: step_params["approver"])
     @approval_flow = ApprovalFlow.find(params[:approval_flow_id])
@@ -18,16 +17,16 @@ class StepsController < ApplicationController
   end
 
   def approve
-    @step = Step.find(params[:id])
+    @step = Step.find(params[:step_id])
     @step.status = "approved"
-    @step.update
+    @step.save # order of flow.steps changes and next one logic doesn't work, need to add order
     # if new_step exists change status to in review, if it does not, activate the final approval button
     @flow = @step.approval_flow
     @flow.steps.each_with_index do |step, index|
       if step == @step
         if @flow.steps[index + 1]
           @flow.steps[index + 1].status = "in review"
-          @flow.steps[index + 1].update
+          @flow.steps[index + 1].save
         else
           # activate final approval button
         end
@@ -36,17 +35,17 @@ class StepsController < ApplicationController
   end
 
   def reject
-    @step = Step.find(params[:id])
+    @step = Step.find(params[:step_id])
     @step.status = "rejected"
-    @step.update
+    @step.save
     @step.approval_flow.proposal.status = "rejected"
-    @step.approval_flow.proposal.update
+    @step.approval_flow.proposal.save
   end
 
   def request_change
-    @step = Step.find(params[:id])
+    @step = Step.find(params[:step_id])
     @step.status = "change request"
-    @step.update
+    @step.save
     # send notification to initiator
   end
 
