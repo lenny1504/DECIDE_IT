@@ -40,6 +40,8 @@ proposal2 = Proposal.new(title: "Quarterly team activity with my team", descript
 proposal2.save
 proposal3 = Proposal.new(title: "New feature for the Customer Dashboard", description: "The customer success team has received customer feedback of the need to improve the dashboard with real time data instead of every 24 hs" , scope: "Test for beta customer" , due_date: Date.new(4/6/2022) , creator: user6 , status: "initiated")
 proposal3.save
+proposal4 = Proposal.new(title: "Buy mojitos for mojito", description: "Mojito wants to celebrate.", due_date: Date.new(2023,8,3), creator: user1 , status: "initiated")
+proposal4.save
 
 approval_flow1 = ApprovalFlow.new(name: "Sales discount" , description: "40% discount for strategic customer" , proposal: proposal1, creator: user4)
 approval_flow1.save
