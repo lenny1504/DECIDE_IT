@@ -50,7 +50,7 @@ approval_flow2.save
 approval_flow3 = ApprovalFlow.new(name: "New feature for Dashboard" , description: "Approval needed from Product, IT and Operation teams" , proposal: proposal3, creator: user6)
 approval_flow3.save
 
-Step.create(approver: user2 , approval_flow: approval_flow1, status: "created")
+Step.create(approver: user2 , approval_flow: approval_flow1, status: "in review")
 Step.create(approver: user8 , approval_flow: approval_flow1, status: "created")
 Step.create(approver: user6 , approval_flow: approval_flow1, status: "created")
 

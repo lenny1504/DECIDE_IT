@@ -14,3 +14,10 @@
 <% else %>
   <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
 <% end %>
+
+
+<% if @action_step  %>
+  <%= link_to "Approve Proposal", step_approve_path(@action_step) %>
+  <%= link_to "Reject Proposal", step_reject_path(@action_step) %>
+  <%= link_to "Request Change", step_request_change_path(@action_step) %>
+<% end  %>

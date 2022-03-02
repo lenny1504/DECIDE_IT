@@ -4,11 +4,12 @@
 
 <h3>Approval Flow Steps:</h2>
 <div>
-    <% @steps.each_with_index do |step, i| %>
-      <%= i + 1 %><%= step.approver.first_name %>
-    <%end%>
+    <ul>
+      <% @steps.each_with_index do |step, i| %>
+        <li>Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %></li>
+      <%end%>
+    </ul>
 </div>
 
 
-<h4>Add Step to Approval Flow</h4>
- <p><%= link_to  "Add new step", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>
+ <p><%= link_to  "Add new step to flow", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>
