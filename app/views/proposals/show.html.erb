@@ -2,9 +2,12 @@
 <h1>Your proposal </h1>
 
 
+
 <p><%= @proposal.title %></p>
 <p><%= @proposal.description %></p>
 <p><%= @proposal.status  %></p>
+
+
 
 <% if @proposal.approval_flow.nil? %>
     <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
