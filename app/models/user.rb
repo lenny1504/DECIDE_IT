@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :proposals
   has_many :approval_flows
   has_many :steps
+  has_one_attached :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
