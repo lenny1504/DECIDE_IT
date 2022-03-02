@@ -34,7 +34,7 @@ user10 = User.new(email: "grace@gmail.com", password: "123456", first_name: "Gra
 user10.save
 
 
-proposal1 = Proposal.new(title: "40% Discount in first year license for important customer", description: "Discount needed to acquire new strategic customer. Big opportunity to expand in the organization.", scope: "Discount for year 1", due_date: Date.new(2022,5,10) , creator: user4 , status: "initiated")
+proposal1 = Proposal.new(title: "40% Discount in first year license for important customer", description: "Discount needed to acquire new strategic customer. Big opportunity to expand in the organization.", scope: "Discount for year 1", due_date: Date.new(2022,5,10) , creator: user1 , status: "initiated")
 proposal1.save
 proposal2 = Proposal.new(title: "Quarterly team activity with my team", description: "Proposal to have one team activity per quarter for each team", scope: "Start with IT team and get feedback" , budget: "20 euros per person" , due_date: Date.new(2022,4,10), creator: user5 , status: "initiated")
 proposal2.save
