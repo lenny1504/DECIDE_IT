@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     patch 'approve', to: 'steps#approve'
     patch 'reject', to: 'steps#reject'
     patch 'request_change', to: 'steps#request_change'
+    patch 'new_review', to: 'steps#new_review'
   end
   get 'dashboard', to: 'pages#dashboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
