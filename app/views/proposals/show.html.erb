@@ -2,11 +2,13 @@
 <h1>Your proposal </h1>
 
 
+<%= @proposal.title %>
+<%= @proposal.description %>
+<%=@proposal.status %>
+<%=@proposal.budget %>
+<%=@proposal.due_date %>
 
-<p><%= @proposal.title %></p>
-<p><%= @proposal.description %></p>
-<p><%= @proposal.status  %></p>
-
+ <%= link_to  "Edit Proposal", edit_proposal_path(@proposal) %>
 
 
 <% if @proposal.approval_flow.nil? %>

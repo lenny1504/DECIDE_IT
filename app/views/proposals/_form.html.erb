@@ -1,11 +1,19 @@
-<%= simple_form_for(@proposal) do |f| %>
- <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description%>
-    <%= f.input :status%>
-  </div>
+<div data-controller='preview-file-controller'>
 
-  <div class="form-actions">
-    <%=f.submit "Submit ", class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <%= simple_form_for [@proposal] do |f| %>
+  <div class="form-inputs">
+      <%= f.input :title, label: "Proposal Title" %>
+      <%= f.input :description, label: "Proposal Description" %>
+      <%= f.input :status, :collection => %w[initiated in_review approved rejected], :prompt => "Select the status"%>
+      <%= f.input :scope%>
+      <%= f.input :budget%>
+      <%= f.input :due_date%>
+      <%= f.input :attached_docs, as: :file, input_html: { multiple: true, data: { action: "change->preview_file_controller#show_file", insert_in_list_target: "input" } }%>
+    </div>
+
+    <div class="form-actions">
+      <%=f.submit "Submit ", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
 
   def new
-    @proposal= Proposal.new
+    @proposal = Proposal.new
   end
 
   def create
@@ -24,11 +24,18 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+
+  end
+
+  def edit
+    @proposal = Proposal.find(params[:id])
+
     # @proposal = Proposal.new
     # comprobar 1. si el current user es approver de algun step de la proposal
     # comprobar 2. si ese step el status es igual a "in review"
     # si es asi --> mostrar los botones de aprobacion/rechazo/change_request + edit de la proposal
     @action_step = in_review_step_current_user(@proposal)
+
   end
 
   def in_review_step_current_user(proposal)
