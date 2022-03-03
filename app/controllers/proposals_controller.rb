@@ -37,7 +37,7 @@ class ProposalsController < ApplicationController
   def in_review_step_current_user(proposal)
     action_step = nil
     proposal.steps.each do |step|
-      if step.approver == current_user && step.status == "in review"
+      if step.approver == current_user && (step.status == "in review" || step.status == "new review")
         action_step = step
       end
     end

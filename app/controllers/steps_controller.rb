@@ -56,6 +56,15 @@ class StepsController < ApplicationController
     create_log(@step, @original_status, @step.status)
   end
 
+  def new_review
+    @step = Step.find(params[:step_id])
+    @original_status = @step.status
+    @step.status = "new review"
+    @step.save
+    # send notification to initiator
+    create_log(@step, @original_status, @step.status)
+  end
+
   def create_log(step, original_status, updated_status)
     Log.create(step: step, original_status: original_status, updated_status: updated_status )
   end
