@@ -17,7 +17,67 @@
 
 
 <% if @action_step  %>
-  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch" %>
-  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch" %>
-  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch" %>
+  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
+  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
+  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
+<% end  %>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add comment to action:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
+                <%= f.input :content, label: "Your comment" %>
+                <%= f.submit "Post", class: "btn btn-primary" %>
+          <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<h3>Progress:</h2>
+<div>
+    <ul>
+      <% @ordered_steps.each_with_index do |step, i| %>
+        <li>Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %>
+            <% if step.logs %>
+                <% step.logs.each do |log| %>
+                  <p>Step changed from <%= log.original_status %> to <%= log.updated_status %> on <%= log.created_at  %></p>
+                <% end  %>
+            <% end %>
+        </li>
+      <%end%>
+    </ul>
+</div>
+
+
+<h3>Comments:</h3>
+<div>
+    <ul>
+      <% @ordered_steps.each do |step| %>
+          <li><% if step.comments %>
+                  <% step.comments.each do |comment| %>
+                    <p>Posted by: <%= comment.user.first_name %> <%= comment.user.last_name %> on <%= comment.created_at  %></p>
+                    <p><%= comment.content %></p>
+                  <% end %>
+              <% end %>
+        </li>
+      <%end%>
+    </ul>
+</div>
+<h4>Add Comment</h4>
+<% if @proposal.approval_flow  %>
+    <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
+            <%= f.input :content, label: "Your comment" %>
+            <%= f.submit "Post", class: "btn btn-primary" %>
+    <%  end %>
 <% end  %>

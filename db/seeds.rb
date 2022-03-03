@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Log.destroy_all
+Comment.destroy_all
 Step.destroy_all
 ApprovalFlow.destroy_all
 Proposal.destroy_all
