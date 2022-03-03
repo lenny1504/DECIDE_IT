@@ -1,6 +1,7 @@
 
 <h1>Your proposal </h1>
 
+
 <%= @proposal.title %>
 <%= @proposal.description %>
 <%=@proposal.status %>
@@ -9,8 +10,16 @@
 
  <%= link_to  "Edit Proposal", edit_proposal_path(@proposal) %>
 
+
 <% if @proposal.approval_flow.nil? %>
     <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
 <% else %>
-  <p>Approval Flow: <%= link_to @proposal.approval_flow.name, proposal_approval_flow_path(@proposal.approval_flow) %></p>
+  <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
 <% end %>
+
+
+<% if @action_step  %>
+  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch" %>
+  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch" %>
+  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch" %>
+<% end  %>

@@ -1,9 +1,8 @@
 class ApprovalFlowsController < ApplicationController
 
   def new
-    # action triggered from the show of the proposals if @proposal.approval_flow is nil
     @approval_flow = ApprovalFlow.new
-    # @proposal = Proposal.find(params[:proposal_id])
+    @proposal = Proposal.find(params[:proposal_id])
   end
 
   def create
@@ -20,8 +19,9 @@ class ApprovalFlowsController < ApplicationController
 
   def show
     @approval_flow = ApprovalFlow.find(params[:id])
-    @step = Step.new
-    @steps = @approval_flow.steps
+    @proposal = @approval_flow.proposal
+    # @step = Step.new
+    @steps = @approval_flow.steps if @approval_flow.steps
   end
 
   def destroy
