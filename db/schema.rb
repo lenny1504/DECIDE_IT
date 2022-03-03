@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_114340) do
+ActiveRecord::Schema.define(version: 2022_03_03_181154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,9 @@ ActiveRecord::Schema.define(version: 2022_03_02_114340) do
     t.string "updated_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["step_id"], name: "index_logs_on_step_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -118,6 +120,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_114340) do
   add_foreign_key "comments", "steps"
   add_foreign_key "comments", "users"
   add_foreign_key "logs", "steps"
+  add_foreign_key "logs", "users"
   add_foreign_key "proposals", "users"
   add_foreign_key "steps", "approval_flows"
   add_foreign_key "steps", "users"
