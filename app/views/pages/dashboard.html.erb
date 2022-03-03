@@ -8,3 +8,9 @@
         </li>
     <% end  %>
 </ul>
+<h2>My Active Tasks</h2>
+<% @user.steps.each do |step|  %>
+  <% if step.status == "in review" %>
+      <p>Approval request for: <%= link_to step.approval_flow.proposal.title, proposal_path(step.approval_flow.proposal) %></p>
+  <% end  %>
+<% end  %>

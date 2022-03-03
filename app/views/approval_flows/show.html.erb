@@ -1,16 +1,15 @@
 <h1>Show page for approval flow: <%= @approval_flow.name %></h1>
-<h2>Proposal: <%= @approval_flow.proposal.name%></h2>
+<h2>Proposal: <%= @approval_flow.proposal.title%></h2>
 <h3>Approval Flow Description: <%= @approval_flow.description%></h2>
 
 <h3>Approval Flow Steps:</h2>
 <div>
-    <% @steps.each_with_index do |step, i| %>
-      <%= i + 1 %><%= step.approver %>
-    <%end%>
+    <ul>
+      <% @steps.each_with_index do |step, i| %>
+        <li>Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %></li>
+      <%end%>
+    </ul>
 </div>
 
-<h4>Add Step to Approval Flow</h4>
-<%= simple_form_for [@step] do |f| %>
-        <%= f.input :approver, label: "Approver" %> <%# We need to give the possibilty to chose among created users? or just input the email? %>
-        <%= f.submit "Create", class: "btn btn-primary" %>
-<%  end %>
+
+ <p><%= link_to  "Add new step to flow", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>
