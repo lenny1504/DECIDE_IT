@@ -1,0 +1,11 @@
+
+<%= link_to "Create new proposal", new_proposal_path, class: "btn btn-flat-white"  %>
+
+<h1>All Proposals</h1>
+
+<% @proposals.each do |proposal| %>
+  <h2><%= proposal.title%></h2>
+  <p><%= proposal.description%></p>
+  <p><%= proposal.creator.email %></p>
+
+<% end %>

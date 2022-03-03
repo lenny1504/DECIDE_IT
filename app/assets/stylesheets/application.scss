@@ -12,3 +12,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.side-container {
+  width:94%;
+}
+
+.side-nav-bar {
+  flex-direction: column;
+  background-color: $dark-blue;
+  width: 6%;
+}
+
+.page-container{
+  display:flex;
+}
