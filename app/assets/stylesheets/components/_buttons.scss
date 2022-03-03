@@ -1,0 +1,84 @@
+
+.btn-flat-white {
+  color: $dark-blue;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  border: 3px solid $dark-blue;
+  border-radius: 25px;
+  background: white;
+  transition: background 0.3s ease;
+}
+.btn-flat-white:hover {
+  background: $dark-blue;
+  color: white;
+}
+
+// APPROVE
+.btn-green-approve {
+  color: $white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  // border: 3px solid black;
+  border-radius: 25px;
+  background: $green;
+  transition: background 0.3s ease;
+}
+.btn-green-approve:hover {
+  background: $white;
+  color: $green;
+  border: 3px solid $green;
+}
+
+// CHANGE
+.btn-blue-change {
+  color: $white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  // border: 3px solid black;
+  border-radius: 25px;
+  background: $blue;
+  transition: background 0.3s ease;
+}
+.btn-blue-change:hover {
+  background: $blue;
+  color: $white;
+  border: 3px solid $blue;
+}
+
+// REJECT
+.btn-orange-reject {
+  color: $white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  // border: 3px solid black;
+  border-radius: 25px;
+  background: $orange;
+  transition: background 0.3s ease;
+}
+.btn-orange-reject:hover {
+  background: $orange;
+  color: $white;
+  border: 3px solid $orange;
+}
+
+//// other btn
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  // opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.btn-ghost:hover {
+  opacity: 1;
+}

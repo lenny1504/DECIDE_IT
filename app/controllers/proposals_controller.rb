@@ -1,7 +1,11 @@
 class ProposalsController < ApplicationController
 
+  def index
+    @proposals = Proposal.all
+  end
+
   def new
-    @proposal= Proposal.new
+    @proposal = Proposal.new
   end
 
   def create
@@ -23,6 +27,10 @@ class ProposalsController < ApplicationController
   end
 
   def show
+    @proposal = Proposal.find(params[:id])
+  end
+
+  def edit
     @proposal = Proposal.find(params[:id])
     # @proposal = Proposal.new
     # comprobar 1. si el current user es approver de algun step de la proposal

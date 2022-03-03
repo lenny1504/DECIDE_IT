@@ -1,13 +1,16 @@
 
-<h1>Your proposal </h1>
-
-
-
-<p><%= @proposal.title %></p>
+<h1><%= @proposal.title %></h1>
 <p><%= @proposal.description %></p>
-<p><%= @proposal.status  %></p>
+
+
 <p><%= @proposal.creator.first_name  %> <%= @proposal.creator.last_name  %> </p>
 
+<p><strong>Status:</strong> <%= @proposal.status  %></p>
+<p><strong>Budget:</strong><%=@proposal.budget %></p>
+<p><strong>Due_date:</strong><%=@proposal.due_date %></p>
+
+
+ <%= link_to  "Edit Proposal", edit_proposal_path(@proposal) %>
 
 
 <% if @proposal.approval_flow.nil? %>
