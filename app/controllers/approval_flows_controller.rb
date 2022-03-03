@@ -21,7 +21,7 @@ class ApprovalFlowsController < ApplicationController
     @approval_flow = ApprovalFlow.find(params[:id])
     @proposal = @approval_flow.proposal
     # @step = Step.new
-    @steps = @approval_flow.steps if @approval_flow.steps
+    @ordered_steps = @approval_flow.steps.order('created_at asc') if @approval_flow.steps
   end
 
   def destroy
