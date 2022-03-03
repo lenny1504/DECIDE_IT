@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  height:100vh;
+  display: flex;
+
+  // flex-direction: column;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +12,36 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.collapse .navbar-collapse {
+  flex-direction: column;
+}
+
+#nav-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.container-fluid {
+  flex-direction: column;
+  height:100vh;
+  width:6%;
+}
+
+.navbar-nav .me-auto {
+flex-direction: column;
+}
+
+.navbar i {
+  color: $white;
+}
+.nav-link a {
+  color: $white;
+}
+
+.nav-link {
+  color: $white;
 }
