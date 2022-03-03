@@ -26,11 +26,11 @@ class ProposalsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @proposal = Proposal.find(params[:id])
   end
 
-  def edit
+  def show
     @proposal = Proposal.find(params[:id])
     # @proposal = Proposal.new
     # comprobar 1. si el current user es approver de algun step de la proposal

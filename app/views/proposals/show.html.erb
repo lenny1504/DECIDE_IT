@@ -1,22 +1,26 @@
+<div class="container-proposal">
+  <div class="titles">
+    <h1><%= @proposal.title %></h1>
+    <p><%= @proposal.description %></p>
+    <p><strong>Status:</strong> <%= @proposal.status  %></p>
+    <p><strong>Budget:</strong><%=@proposal.budget %></p>
+    <p><strong>Due_date:</strong><%=@proposal.due_date %></p>
+  </div>
 
-<h1><%= @proposal.title %></h1>
-<p><%= @proposal.description %></p>
-<p><strong>Status:</strong> <%= @proposal.status  %></p>
-<p><strong>Budjet:</strong><%=@proposal.budget %></p>
-<p><strong>Due_date:</strong><%=@proposal.due_date %></p>
+  <div class="approval-flow-proposal">
+    <% if @proposal.approval_flow.nil? %>
+      <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
+    <% else %>
+    <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
+    <% end %>
+  </div>
+</div>
 
- <%= link_to  "Edit Proposal", edit_proposal_path(@proposal) %>
-
-
-<% if @proposal.approval_flow.nil? %>
-    <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
-<% else %>
-  <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
-<% end %>
-
-
-<% if @action_step  %>
-  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch" %>
-  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch" %>
-  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch" %>
-<% end  %>
+    <div class="edit-button">
+      <%= link_to  "Edit Proposal", edit_proposal_path(@proposal), class: "btn-ghost"%>
+    </div>
+  <% if @action_step  %>
+    <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", class: "btn-green-approve" %>
+    <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch", class: "btn-orange-reject"  %>
+    <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", class: "btn-blue-change" %>
+  <% end  %>
