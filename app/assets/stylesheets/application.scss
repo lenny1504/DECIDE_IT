@@ -13,6 +13,25 @@
 @import "components/index";
 @import "pages/index";
 
+// CSS for all the pages
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: $dark-blue;
+}
+
+h2 {
+  font-size: 28px;
+  color: $blue;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  color: $black;
+}
+
 .side-container {
   width:94%;
 }
@@ -25,4 +44,13 @@
 
 .page-container{
   display:flex;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $dark-blue;
 }
