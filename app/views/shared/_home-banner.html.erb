@@ -2,6 +2,10 @@
   <div class="container">
     <h1>Decide it <strong></h1>
     <p>Simplify decision making through clear approval flows.</p>
-    <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
+    <% if user_signed_in?  %>
+      <%= link_to "Go To Dashboard", dashboard_path, class: "btn btn-light" %>
+    <% else  %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
+    <% end  %>
   </div>
 </div>

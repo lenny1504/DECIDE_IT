@@ -14,10 +14,22 @@
           <p><strong>Approval Flow: </strong><%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
         <% end %>
 
-        <% if @proposal.approval_flow && @proposal.steps.first == "created"  %>
-          <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
-        <% end  %>
+
+        
+          <% if (@proposal.approval_flow) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
+            <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
+          <% end  %>
       </div>
+
+<div class="buttons-approve">
+<% if @action_step  %>
+  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
+  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
+  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-blue-change" %>
+<% end  %>
+  <%= link_to  "Edit Proposal", edit_proposal_path(@proposal), class: "btn-ghost"%>
+</div>
+
 
       <div class="buttons-approve">
       <% if @action_step  %>
@@ -54,7 +66,7 @@
 
 
 <% if @proposal.approval_flow %>
-    <% if (@proposal.steps.last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
+    <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
       <div>
           <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
           <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>

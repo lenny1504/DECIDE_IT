@@ -46,8 +46,8 @@
   transition: background 0.3s ease;
 }
 .btn-blue-change:hover {
-  background: $blue;
-  color: $white;
+  background:$white ;
+  color: $blue;
   border: 3px solid $blue;
 }
 
@@ -64,21 +64,7 @@
   transition: background 0.3s ease;
 }
 .btn-orange-reject:hover {
-  background: $orange;
-  color: $white;
+  background: $white;
+  color: $orange;
   border: 3px solid $orange;
-}
-
-//// other btns
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 16px 32px;
-  border-radius: 50px;
-  font-weight: bold;
-  // opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-.btn-ghost:hover {
-  opacity: 1;
 }

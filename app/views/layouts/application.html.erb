@@ -13,15 +13,17 @@
   </head>
 
   <body>
-    <div class="page-container ">
-      <%= render 'shared/flashes' %>
-      <div class="side-nav-bar">
-        <%= render 'shared/navbar' %>
-      </div>
-      <div class="side-container m-5">
-        <%= yield %>
-      </div>
-    </div>
-
+    <% unless current_page?(root_path)  %>
+        <div class="page-container ">
+          <%= render 'shared/flashes' %>
+              <div class="side-nav-bar">
+                <%= render 'shared/navbar' %>
+              </div>
+              <div class="side-container m-5">
+                <%= yield %>
+              </div>
+        </div>
+    <% end  %>
+    <%= yield %>
   </body>
 </html>
