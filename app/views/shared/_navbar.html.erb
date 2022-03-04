@@ -6,13 +6,18 @@
       <% end %>
       </div>
       <div class="index-all">
-      <%= link_to proposals_path, class: "nav-item index-all" do %>
-        <i class="fas fa-layer-group"></i>
-      <% end %>
-    </div>
+        <%= link_to proposals_path, class: "nav-item index-all" do %>
+          <i class="fas fa-layer-group"></i>
+        <% end %>
+      </div>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto" id="nav-user">
+        <li class="index-all">
+          <%= link_to proposals_path, class: "nav-item index-all" do %>
+            <i class="fas fa-layer-group"></i>
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to new_proposal_path do %>
@@ -25,7 +30,7 @@
                 <i class="fas fa-clipboard-list"></i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item notifications">
               <%= link_to "#" do %>
                 <i class="far fa-bell"></i>
               <% end %>
@@ -36,7 +41,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= image_tag "profile-image.jpg", class: "avatar-bordered"%>
+              <%= image_tag "profile-image.jpg", class: "avatar"%>
             </li>
           <div>
           <% else %>
