@@ -1,4 +1,5 @@
-<div data-controller='preview-file-controller'>
+
+<div data-controller='preview-file'>
 
   <%= simple_form_for [@proposal] do |f| %>
   <div class="form-inputs">
@@ -7,12 +8,13 @@
       <%= f.input :status, :collection => %w[initiated in_review approved rejected], :prompt => "Select the status"%>
       <%= f.input :scope%>
       <%= f.input :budget%>
-      <%= f.input :due_date%>
-      <%= f.input :attached_docs, as: :file, input_html: { multiple: true, data: { action: "change->preview_file_controller#show_file", insert_in_list_target: "input" } }%>
-    </div>
+      <%= f.input :due_date, as: :string, input_html: {class: "datepicker"} , label: "Due Date"%>
+      <div data-preview-file-target="preview" class="image-upload"></div>
+      <%= f.input :attached_docs, label: "Attached Files", as: :file, label_html: {data: {preview_file_target: "label"} }, input_html: { multiple: true, data: { action: "change->preview-file#show", preview_file_target: "input" } }%>
+  </div>
 
-    <div class="form-actions">
-      <%=f.submit "Submit ", class: "btn btn-primary" %>
+    <div class="form-actions text-center">
+      <%=f.submit "Submit ", class: "btn btn-primary"%>
     </div>
   <% end %>
 
