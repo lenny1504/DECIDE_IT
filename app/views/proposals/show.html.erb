@@ -1,35 +1,37 @@
-<div class="container-proposal">
-  <div class="titles">
-    <h1><%= @proposal.title %></h1>
-    <p><%= @proposal.description %></p>
-    <p><strong>Status:</strong> <%= @proposal.status  %></p>
-    <p><strong>Budget:</strong><%=@proposal.budget %></p>
-    <p><strong>Due_date:</strong><%=@proposal.due_date %></p>
-  </div>
-</div>
+<div class="container-show">
+  <div class="proposal-section">
+    <div class="proposal-box">
+      <div class="titles">
+        <h1><%= @proposal.title %></h1>
+        <p><%= @proposal.description %></p>
+        <p><strong>Status: </strong> <%= @proposal.status  %></p>
+        <p><strong>Budget: </strong><%=@proposal.budget %></p>
+        <p><strong>Due_date: </strong><%=@proposal.due_date %></p>
 
-<% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-    <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
-<% else %>
-  <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
-<% end %>
+        <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
+          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-ghost" %>
+        <% else %>
+          <p><strong>Approval Flow: </strong><%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
+        <% end %>
 
-<% if @proposal.approval_flow && @proposal.steps.first == "created"  %>
-  <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
-<% end  %>
-<div class="buttons-approve">
-<% if @action_step  %>
-  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
-  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
-  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-blue-change" %>
-<% end  %>
-  <%= link_to  "Edit Proposal", edit_proposal_path(@proposal), class: "btn-ghost"%>
-</div>
+        <% if @proposal.approval_flow && @proposal.steps.first == "created"  %>
+          <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
+        <% end  %>
+      </div>
 
-<% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
-  <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
-<% end  %>
+      <div class="buttons-approve">
+      <% if @action_step  %>
+        <%= link_to "Approve", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
+        <%= link_to "Reject", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
+        <%= link_to "Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-blue-change" %>
+      <% end  %>
+        <%= link_to  "Edit", edit_proposal_path(@proposal), class: "btn-ghost"%>
+      </div>
 
+      <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
+        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
+      <% end  %>
+    
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -42,7 +44,7 @@
           <% if @proposal.approval_flow  %>
               <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
                     <%= f.input :content, label: "Your comment" %>
-                    <%= f.submit "Post", class: "btn btn-primary" %>
+                    <%= f.submit "Post", class: "btn-btn-primary" %>
               <%end%>
           <% end %>
       </div>
@@ -56,7 +58,7 @@
       <div>
           <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
           <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
-          <p> <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch" %></p>
+          <p> <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-ghost mt-2" %></p>
       </div>
     <% end  %>
 <% end  %>
@@ -64,27 +66,7 @@
 <% if @proposal.status == "approved"  %>
   <h1> 🎉 The proposal is approved 🎉 </h1>
 <%end %>
-
-<h3>Progress:</h2>
-<div>
-    <ul>
-      <% if @ordered_steps %>
-        <% @ordered_steps.each_with_index do |step, i| %>
-          <li>Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %>
-              <% if step.logs %>
-                  <% step.logs.each do |log| %>
-                    <p>Step changed from <%= log.original_status %> to <%= log.updated_status %> on <%= log.created_at  %></p>
-                  <% end  %>
-              <% end %>
-          </li>
-        <%end%>
-      <% end  %>
-    </ul>
 </div>
-
-<%= render "shared/progress" %>
-
-
 <h3>Comments:</h3>
 <div>
     <ul>
@@ -108,3 +90,27 @@
             <%= f.submit "Post", class: "btn btn-primary" %>
     <%  end %>
 <% end  %>
+  </div>
+
+  <div class="progress-section">
+
+<h3>Progress:</h2>
+<div>
+    <ul>
+      <% if @ordered_steps %>
+        <% @ordered_steps.each_with_index do |step, i| %>
+          <li><span class="progress-dates-color">Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %></span>
+              <% if step.logs %>
+                  <% step.logs.each do |log| %>
+                    <p>Step changed from <span class="progress-dates-color"><%= log.original_status %> </span> to <span class="progress-dates-color"><%= log.updated_status %></span> on <%= log.created_at.strftime("%e %b %Y")  %></p>
+                  <% end  %>
+              <% end %>
+          </li>
+        <%end%>
+      <% end  %>
+    </ul>
+</div>
+
+
+  </div>
+</div>
