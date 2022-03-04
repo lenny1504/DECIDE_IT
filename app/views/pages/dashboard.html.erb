@@ -1,31 +1,29 @@
+<div class="dashboard-container">
 
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<h2>Welcome to your Dashboard!</h2>
+  <div class="all-proposals-header mb-4">
+    <h1><strong><%= @user.first_name %> <%= @user.last_name %></strong>, welcome to your Dashboard!</h1>
+    <%= link_to "Create new proposal ", new_proposal_path, class: "btn btn-flat-white"  %>
+  </div>
 
-<h3>My proposals</h3>
-<ul>
-    <% @proposals.each do |proposal| %>
-        <li>
-            <p><%= proposal.title %></p>
-            <p><%= proposal.description %></p>
-            <p><%= link_to "Proposal Page", proposal_path(proposal)  %>
-        </li>
-    <% end  %>
-</ul>
+  <div class="my-proposals-container">
+    <h2 id="dash-header">My proposals</h2>
+    <div class="proposal-cards-container">
+      <%= render "shared/card-proposal" %>
+    </div>
+  </div>
 
-<h3>My Active Tasks</h3>
-<% @user.steps.each do |step|  %>
-  <% if step.status == "in review" || step.status == "new review" %>
-      <p>Approval request for: <%= link_to step.approval_flow.proposal.title, proposal_path(step.approval_flow.proposal) %></p>
-  <% end  %>
-<% end  %>
+  <div class="approval-requests-container">
+    <h2 id="dash-header">Approval requests</h2>
+    <div class="proposal-cards-container">
+      <%= render "shared/card-approval" %>
+    </div>
+  </div>
 
-<%# go over the user proposals if a step is in change request show the proposal %>
-<h2>Change requests</h2>
-<% @user.proposals.each do |proposal| %>
-  <% proposal.steps.each do |step| %>
-    <% if step.status == "change request"  %>
-        <p>Change request for: <%= link_to step.approval_flow.proposal.title, proposal_path(step.approval_flow.proposal) %></p>
-    <% end  %>
-  <% end  %>
-<% end  %>
+  <%# go over the user proposals if a step is in change request show the proposal %>
+  <div class="change-requests-container">
+    <h2 id="dash-header">Change requests</h2>
+    <div class="proposal-cards-container">
+      <%= render "shared/card-change" %>
+    </div>
+  </div>
+</div>
