@@ -1,16 +1,11 @@
 <div class="all-proposals-container">
-  <div class="title-btn">
-    <%= link_to "Create new proposal", new_proposal_path, class: "btn btn-flat-white"  %>
+  <div class="all-proposals-header mb-4">
     <h1>All Proposals</h1>
+    <%= link_to "Create new proposal", new_proposal_path, class: "btn btn-flat-white"  %>
   </div>
 
   <div class="proposal-cards-container">
-    <% @proposals.each do |proposal| %>
-      <h2><%= proposal.title%></h2>
-      <p><%= proposal.description%></p>
-      <p>Created by: <%= proposal.creator.email %></p>
-      <p><%= link_to "Proposal Page", proposal_path(proposal) %></p>
-    <% end %>
+    <%= render "shared/card-proposal" %>
   </div>
 
 </div>
