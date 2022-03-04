@@ -1,0 +1,18 @@
+.card-proposal {
+  padding: 15px;
+  border: 2px solid $black;
+  // box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.card-proposal-info-top h2 {
+  font-size: 24px;
+}
+
+.all-proposals-header {
+  display:flex;
+  justify-content: space-between;
+}
+
+.proposal-cards-container {
+  margin:auto;
+}
