@@ -1,0 +1,22 @@
+.container-proposal{
+  display: flex;
+  flex-direction: column;
+}
+
+.titles h1{
+  color: $black;
+}
+
+.titles p {
+  color: $black;
+}
+
+.approval-flow-proposal {
+  display: flex;
+
+}
+
+.edit-button {
+ margin-left: 3px;
+ margin-top: 5px;
+}

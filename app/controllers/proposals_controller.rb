@@ -37,12 +37,15 @@ class ProposalsController < ApplicationController
     # comprobar 2. si ese step el status es igual a "in review"
     # si es asi --> mostrar los botones de aprobacion/rechazo/change_request + edit de la proposal
     @action_step = in_review_step_current_user(@proposal)
+    @ordered_steps = @proposal.approval_flow.steps.order('created_at asc') if @proposal.approval_flow
+    @comment = Comment.new
+    @user = current_user
   end
 
   def in_review_step_current_user(proposal)
     action_step = nil
     proposal.steps.each do |step|
-      if step.approver == current_user && step.status == "in review"
+      if step.approver == current_user && (step.status == "in review" || step.status == "new review")
         action_step = step
       end
     end
@@ -56,6 +59,11 @@ class ProposalsController < ApplicationController
   def reject
     @proposal = Proposal.find(params[:id])
     @proposal.status = "rejected"
+  end
+
+  def approve
+    @proposal = Proposal.find(params[:id])
+    @proposal.status = "approved"
   end
 
   private

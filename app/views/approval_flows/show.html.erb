@@ -5,7 +5,7 @@
 <h3>Approval Flow Steps:</h2>
 <div>
     <ul>
-      <% @steps.each_with_index do |step, i| %>
+      <% @ordered_steps.each_with_index do |step, i| %>
         <li>Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %></li>
       <%end%>
     </ul>

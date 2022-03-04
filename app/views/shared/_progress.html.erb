@@ -1,0 +1,16 @@
+<h3>Progress:</h2>
+<div>
+    <ul>
+      <% @ordered_steps.each_with_index do |step, i| %>
+        <li>
+            <% if step.logs.length > 0 %>
+                <% step.logs.each do |log| %>
+                  <p><span class="progress-dates-color"><%= log.user.first_name %> <%= log.user.last_name %></span> <%= log.updated_status %> on <span class="progress-dates-color"><%= log.created_at.strftime("%e %b %Y") %></span></p>
+                <% end  %>
+            <% else %>
+                  <span class="progress-dates-color"><%= step.approver.first_name %> <%= step.approver.last_name %></span> <%= step.status %> on <span class="progress-dates-color"><%= step.created_at.strftime("%e %b %Y")  %></span>
+            <% end %>
+        </li>
+      <%end%>
+    </ul>
+</div>
