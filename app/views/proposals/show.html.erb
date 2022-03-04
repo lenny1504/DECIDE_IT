@@ -15,20 +15,12 @@
         <% end %>
 
 
-        
+
           <% if (@proposal.approval_flow) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
             <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
           <% end  %>
       </div>
 
-<div class="buttons-approve">
-<% if @action_step  %>
-  <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
-  <%= link_to "Reject Proposal", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
-  <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-blue-change" %>
-<% end  %>
-  <%= link_to  "Edit Proposal", edit_proposal_path(@proposal), class: "btn-ghost"%>
-</div>
 
 
       <div class="buttons-approve">
@@ -37,13 +29,13 @@
         <%= link_to "Reject", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
         <%= link_to "Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-blue-change" %>
       <% end  %>
-        <%= link_to  "Edit", edit_proposal_path(@proposal), class: "btn-ghost"%>
+        <%= link_to  "Edit", edit_proposal_path(@proposal), class: "btn-flat-white"%>
       </div>
 
       <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
         <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
       <% end  %>
-    
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
