@@ -1,5 +1,5 @@
 <h1>Show page for approval flow: <%= @approval_flow.name %></h1>
-<h2>Proposal: <%= @approval_flow.proposal.title%></h2>
+<h2>Proposal: <%= link_to @approval_flow.proposal.title, proposal_path(@approval_flow.proposal)%></h2>
 <h3>Approval Flow Description: <%= @approval_flow.description%></h2>
 
 <h3>Approval Flow Steps:</h2>
