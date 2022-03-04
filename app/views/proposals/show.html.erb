@@ -14,9 +14,11 @@
   <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
 <% end %>
 
-<% if @proposal.approval_flow && @proposal.steps.first == "created"  %>
+
+<% if (@proposal.approval_flow) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
   <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
 <% end  %>
+
 <div class="buttons-approve">
 <% if @action_step  %>
   <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
@@ -52,7 +54,7 @@
 
 
 <% if @proposal.approval_flow %>
-    <% if (@proposal.steps.last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
+    <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
       <div>
           <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
           <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>

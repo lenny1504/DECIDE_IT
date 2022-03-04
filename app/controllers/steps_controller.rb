@@ -11,6 +11,9 @@ class StepsController < ApplicationController
     @step.approver = User.find_by(email: step_params["approver"])
     @approval_flow = ApprovalFlow.find(params[:approval_flow_id])
     @step.approval_flow = @approval_flow
+    if @approval_flow.steps.first.status != "created"
+      @step.status = "in review"
+    end
     if @step.save
       redirect_to approval_flow_path(@approval_flow)
     end
@@ -75,8 +78,9 @@ class StepsController < ApplicationController
 
   def start
     @step = Step.find(params[:step_id])
-    @step.status = "in request"
+    @step.status = "in review"
     @step.save
+    redirect_to dashboard_path
   end
 
   private

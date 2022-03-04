@@ -62,13 +62,14 @@ class ProposalsController < ApplicationController
   end
 
   def approve
-    @proposal = Proposal.find(params[:id])
+    @proposal = Proposal.find(params[:proposal_id])
     @proposal.status = "approved"
+    @proposal.save
   end
 
   private
 
   def proposal_params
-    params.require(:proposal).permit(:title, :description, :status)
+    params.require(:proposal).permit(:title, :description, :status, :scope, :budget, :due_date)
   end
 end
