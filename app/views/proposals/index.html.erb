@@ -6,6 +6,7 @@
 <% @proposals.each do |proposal| %>
   <h2><%= proposal.title%></h2>
   <p><%= proposal.description%></p>
-  <p><%= proposal.creator.email %></p>
+  <p>Created by: <%= proposal.creator.email %></p>
+  <p><%= link_to "Proposal Page", proposal_path(proposal) %></p>
 
 <% end %>

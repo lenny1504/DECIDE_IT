@@ -17,6 +17,7 @@ class StepsController < ApplicationController
   end
 
   def approve
+    @user = current_user
     @step = Step.find(params[:step_id])
     @original_status = @step.status
     @step.status = "approved"
@@ -34,7 +35,7 @@ class StepsController < ApplicationController
         end
       end
     end
-    create_log(@step, @original_status, @step.status)
+    create_log(@step, @original_status, @step.status, @user)
   end
 
   def reject
@@ -44,7 +45,8 @@ class StepsController < ApplicationController
     @step.save
     @step.approval_flow.proposal.status = "rejected"
     @step.approval_flow.proposal.save
-    create_log(@step, @original_status, @step.status)
+    @user = current_user
+    create_log(@step, @original_status, @step.status, @user)
   end
 
   def request_change
@@ -53,7 +55,8 @@ class StepsController < ApplicationController
     @step.status = "change request"
     @step.save
     # send notification to initiator
-    create_log(@step, @original_status, @step.status)
+    @user = current_user
+    create_log(@step, @original_status, @step.status, @user)
   end
 
   def new_review
@@ -62,11 +65,18 @@ class StepsController < ApplicationController
     @step.status = "new review"
     @step.save
     # send notification to initiator
-    create_log(@step, @original_status, @step.status)
+    @user = current_user
+    create_log(@step, @original_status, @step.status, @user)
   end
 
-  def create_log(step, original_status, updated_status)
-    Log.create(step: step, original_status: original_status, updated_status: updated_status )
+  def create_log(step, original_status, updated_status, user)
+    Log.create(step: step, original_status: original_status, updated_status: updated_status, user: user)
+  end
+
+  def start
+    @step = Step.find(params[:step_id])
+    @step.status = "in request"
+    @step.save
   end
 
   private

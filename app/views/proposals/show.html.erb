@@ -13,12 +13,15 @@
  <%= link_to  "Edit Proposal", edit_proposal_path(@proposal) %>
 
 
-<% if @proposal.approval_flow.nil? %>
+<% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
     <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal) %>
 <% else %>
   <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
 <% end %>
 
+<% if @proposal.approval_flow && @proposal.steps.first == "created"  %>
+  <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
+<% end  %>
 
 <% if @action_step  %>
   <%= link_to "Approve Proposal", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
@@ -39,18 +42,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
-                <%= f.input :content, label: "Your comment" %>
-                <%= f.submit "Post", class: "btn btn-primary" %>
-          <%end%>
+          <% if @proposal.approval_flow  %>
+              <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
+                    <%= f.input :content, label: "Your comment" %>
+                    <%= f.submit "Post", class: "btn btn-primary" %>
+              <%end%>
+          <% end %>
       </div>
     </div>
   </div>
 </div>
 
 
+<% if (@proposal.steps.last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
+  <div>
+      <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
+      <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
+      <p> <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch" %></p>
+  </div>
+<% end  %>
 
-
+<% if @proposal.status == "approved"  %>
+  <h1> 🎉 The proposal is approved 🎉 </h1>
+<%end %>
 
 <h3>Progress:</h2>
 <div>
@@ -66,6 +80,8 @@
       <%end%>
     </ul>
 </div>
+
+<%= render "shared/progress" %>
 
 
 <h3>Comments:</h3>
