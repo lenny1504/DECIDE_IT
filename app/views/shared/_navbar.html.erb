@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="home-logo">
       <%= link_to root_path, class: "nav-item" do %>
-        <i class="fas fa-home"></i>
+        <i class="fi fi-rs-home"></i>
       <% end %>
       </div>
 
@@ -11,27 +11,32 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to proposals_path do %>
-              <i class="fas fa-layer-group"></i>
+              <i class="fi fi-rs-layers"></i>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_proposal_path do %>
-              <i class="fas fa-plus"></i>
+              <i class="fi fi-rs-plus"></i>
+            <% end %>
+          </li>
+          <li class="nav-item search">
+            <%= link_to "#" do %>
+              <i class="fi fi-rs-search"></i>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to dashboard_path do %>
-              <i class="fas fa-clipboard-list"></i>
+              <i class="fi fi-rs-dashboard"></i>
             <% end %>
           </li>
           <li class="nav-item notifications">
             <%= link_to "#" do %>
-              <i class="far fa-bell"></i>
+              <i class="fi fi-rs-bell"></i>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fas fa-sign-out-alt"></i>
+              <i class="fi fi-rs-power"></i>
             <% end %>
           </li>
           <li class="nav-item">
@@ -40,7 +45,7 @@
         <% else %>
           <li class="log-out nav-item">
             <%= link_to new_user_session_path do %>
-              <i class="fas fa-sign-in-alt"></i>
+              <i class="fi fi-rs-sign-in"></i>
             <% end %>
           </li>
         <% end %>
