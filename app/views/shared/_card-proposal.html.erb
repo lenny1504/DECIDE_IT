@@ -11,5 +11,8 @@
         <% link_to "Proposal Page", proposal_path(proposal) %>
       </div>
     </div>
-
+    <% @counter_proposals += 1  %>
 <% end %>
+<% if @counter_proposals == 0 %>
+  <p>You haven't created any proposal yet.</p>
+<%end  %>
