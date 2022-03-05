@@ -1,11 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.hrzone.com/sites/default/files/pixelfit_0.jpg);">
-  <div class="container">
-    <h1>Decide it <strong></h1>
-    <p>Simplify decision making through clear approval flows.</p>
+<div class="banner-home container d-flex flex-column justify-content-center align-items-baseline" style="">
+    <h1 id="h1-home-banner">Forget about <i>unnecessary bureaucracy</i>, prepare your projects for success</h1>
+    <p id="p-home-banner">A new way of working. Stay agile. Stay aligned.</p>
     <% if user_signed_in?  %>
-      <%= link_to "Go To Dashboard", dashboard_path, class: "btn btn-light" %>
+      <%= link_to "Go To Dashboard", dashboard_path, class: "btn", id: "btn-home" %>
     <% else  %>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
+      <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home" %>
     <% end  %>
-  </div>
 </div>

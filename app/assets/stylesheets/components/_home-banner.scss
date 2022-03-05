@@ -1,7 +1,6 @@
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
+.banner-home {
+  padding: 20px 0;
+  height: 80vh;
 }
 
 .banner h1 {
@@ -17,4 +16,20 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#h1-home-banner {
+  font-size: 13vh;
+  color: $dark-blue;
+  font-weight: normal;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-weight: normal;
+  line-height: 11vh;
+}
+
+#p-home-banner {
+  font-size: 5vh;
+  color: black;
+  font-family: 'Darker Grotesque', sans-serif;
+  margin-bottom: 30px;
 }

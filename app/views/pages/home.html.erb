@@ -1,41 +1,24 @@
 
+<%= render "shared/navbar-home" %>
 <%= render "shared/home-banner" %>
 
 
-<div class="container" id="personality">
-  <h2 class="category-header pb-4"></h2>
-  <div class="row justify-content-center" id="grid-gap">
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/1815631/screenshots/14598430/media/105f796bf7e3ecae0b5fc9f6eef63ee1.png?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos odd d-flex flex-column">
-            <h2>Agility</h2>
-            <p>Create flexible approval flows</p>
-        </div>
-    </div>
 
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/646089/screenshots/14358445/media/e15e502a716d97c8cd6b882362d65b02.jpg?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos even d-flex flex-column">
-            <h2>High Visibility</h2>
-            <p>Help decision making</p>
-        </div>
-    </div>
 
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/3470960/screenshots/15580151/media/db47e1ed7fdc096ae36bc42bff50564f.png?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos odd d-flex flex-column">
-            <h2>Consensus</h2>
-            <p>Ensure internal alignment</p>
-        </div>
+<div class="container d-flex" id="home-value-prop">
+    <h2> In mid and large orgs, projects with a lot of potencial get stalled or don’t even start due to a lack of effective approval processes. </h2>
+    <div class="container d-flex flex-column justify-content-center align-items-baseline">
+      <p>Tool to help decision making and expedite organizational consensus by easily creating flexible approval flows for new projects. </p>
+      <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home" %>
     </div>
-
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/1286696/screenshots/4143669/media/fb300c3fa154653f60a7379dacd8d3df.png?compress=1&resize=800x600&vertical=top" />
-        <div class="card-trip-infos even d-flex flex-column">
-            <h2>Scalability</h2>
-            <p>For fast growth organizations</p>
-        </div>
-    </div>
-
-  </div>
 </div>
+
+<div class="container d-flex flex-column justify-content-center align-items-center" id="home-last-section">
+  <h2>All proposals in a single place</h2>
+  <h2>Try it for free</h2>
+  <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home-white" %>
+</div>
+
+
+
+<%= render "shared/footer-home" %>
