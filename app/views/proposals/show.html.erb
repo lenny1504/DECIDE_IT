@@ -16,7 +16,7 @@
 
 
 
-          <% if (@proposal.approval_flow) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
+          <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
             <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch" %>
           <% end  %>
       </div>
@@ -45,7 +45,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <% if @proposal.approval_flow  %>
+          <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first)  %>
               <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
                     <%= f.input :content, label: "Your comment" %>
                     <%= f.submit "Post", class: "btn-btn-primary" %>
@@ -57,7 +57,7 @@
 </div>
 
 
-<% if @proposal.approval_flow %>
+<% if @proposal.steps.first %>
     <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
       <div>
           <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
@@ -71,7 +71,9 @@
   <h1> 🎉 The proposal is approved 🎉 </h1>
 <%end %>
 </div>
-<h3>Comments:</h3>
+<% if @proposal.steps.first  %>
+  <h3>Comments:</h3>
+<% end  %>
 <div>
     <ul>
       <% if @ordered_steps %>
@@ -87,8 +89,8 @@
       <%end%>
     </ul>
 </div>
-<h4>Add Comment</h4>
-<% if @proposal.approval_flow  %>
+<% if @proposal.steps.first  %>
+  <h4>Add Comment</h4>
     <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
             <%= f.input :content, label: "Your comment" %>
             <%= f.submit "Post", class: "btn btn-primary" %>

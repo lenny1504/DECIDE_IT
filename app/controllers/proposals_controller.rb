@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
 
   def index
     @proposals = Proposal.all
+    @counter_proposals = 0
   end
 
   def new
