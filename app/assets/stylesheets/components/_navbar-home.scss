@@ -1,12 +1,19 @@
 .navbar-lewagon-home {
+  display: flex;
   justify-content: space-between;
   background: white;
 }
 
 .navbar-lewagon-home .navbar-collapse-home {
-  flex-grow: 0;
+  // flex-grow: 0;
 }
 
 .navbar-lewagon-home .navbar-brand-home img {
   width: 40px;
+}
+
+.navbar-lewagon-home a {
+  color: $dark-blue;
+  text-decoration: none;
+  font-size: 16px;
 }

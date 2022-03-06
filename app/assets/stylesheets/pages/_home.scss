@@ -1,17 +1,40 @@
 // Specific CSS for your home-page
 
-#home-value-prop {
+.home-value-prop {
   height: auto;
   padding: 60px 0px;
    h2 {
     font-size: 20px;
+    font-weight: lighter;
     color: $dark-blue;
-    padding-right: 50px;
-
+    // padding-right: 50px;
+    // width: 30vw;
+   }
+   div {
+     width: 35vw;
+     margin: 8px 0px;
+     padding-bottom: 12px;
    }
    p {
+    font-size: 14px;
+  }
+}
 
-   }
+#home-value-prop-info {
+  height: 90px;
+  position: sticky; top: 55px;
+}
+
+.card-benefits-home {
+  border-bottom: 1px solid lightgray ;
+  p {
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 24px;
+    color: $dark-blue;
+    margin: 0px;
+  }
 }
 
 #home-last-section {
@@ -19,10 +42,18 @@
   background: $dark-blue;
   padding: 120px 0px;
    h2 {
-    font-size: 20px;
+    font-size: 25px;
     color: white;
+    font-weight: lighter;
    }
    p {
+    font-size: 18px;
     color: white;
+    font-weight: lighter;
    }
+}
+
+.image-card-home {
+  height: 120px;
+  width: 120px;
 }

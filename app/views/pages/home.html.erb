@@ -5,17 +5,40 @@
 
 
 
-<div class="container d-flex" id="home-value-prop">
-    <h2> In mid and large orgs, projects with a lot of potencial get stalled or don’t even start due to a lack of effective approval processes. </h2>
+<div class="container d-flex justify-content-between home-value-prop">
+    <div class="container d-flex flex-column" id="home-value-prop-info">
+        <h2> Effective approval processes for fast growth organizations. </h2>
+        <p> A simple and creative solution </p>
+        <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home" %>
+    </div>
     <div class="container d-flex flex-column justify-content-center align-items-baseline">
-      <p>Tool to help decision making and expedite organizational consensus by easily creating flexible approval flows for new projects. </p>
-      <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home" %>
+      <div class="container d-flex card-benefits-home">
+          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
+          <div class="container d-flex flex-column justify-content-start">
+            <h3>Agility</h3>
+            <p>Create flexible approval flows. </p>
+          </div>
+      </div>
+      <div class="container d-flex card-benefits-home">
+          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
+          <div class="container d-flex flex-column justify-content-start">
+            <h3>Consensus</h3>
+            <p>Ensure internal alignment. </p>
+          </div>
+      </div>
+      <div class="container d-flex card-benefits-home">
+          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
+          <div class="container d-flex flex-column justify-content-start">
+            <h3>High Visibility</h3>
+            <p>Help decision making. </p>
+          </div>
+      </div>
     </div>
 </div>
 
 <div class="container d-flex flex-column justify-content-center align-items-center" id="home-last-section">
   <h2>All proposals in a single place</h2>
-  <h2>Try it for free</h2>
+  <p>Try it for free</p>
   <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home-white" %>
 </div>
 
