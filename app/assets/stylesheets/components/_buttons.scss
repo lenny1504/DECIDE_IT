@@ -91,3 +91,75 @@
   border: 3px solid $orange;
   height: fit-content;
 }
+
+//// other btns
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  // opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+
+.btn-home {
+  background: $dark-blue;
+  color:white;
+  font-weight: normal;
+  letter-spacing: 2px;
+  padding: 1px 10px;
+  // border: 3px solid $dark-blue;
+  // border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.btn-home-white {
+  background: white;
+  color:$dark-blue;
+  font-weight: normal;
+  letter-spacing: 2px;
+  padding: 1px 10px;
+  // border: 3px solid $dark-blue;
+  // border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+#btn-home-banner {
+  background: linear-gradient(90deg, #FFFFFF 9.85%, #CEDBEE 98.01%);
+  border-radius: 50px;
+  color: $dark-blue;
+  padding: 5px 20px;
+  font-weight: bolder;
+  }
+
+  #btn-home-last-section {
+    background: white;
+    color: $dark-blue;
+    border: 2px solid $dark-blue;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    margin: auto;
+    line-height: 30px;
+  }
+
+  #btn-home-last-section:hover {
+    background: $dark-blue;
+    color: white;
+  }
+
+  #btn-home-value-prop{
+    background: linear-gradient(90deg, #FFFFFF 9.85%, #CEDBEE 98.01%);
+    border-radius: 50px;
+    color: $dark-blue;
+    padding: 5px 20px;
+    font-weight: bolder;
+    margin: 0;
+    width: fit-content;
+  }
