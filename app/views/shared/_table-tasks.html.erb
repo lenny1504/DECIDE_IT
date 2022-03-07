@@ -1,0 +1,29 @@
+<% if @counter_approvals == 0 %>
+  <p>You don't have any pending approval requests</p>
+<% else %>
+  <table class="dashboard-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Creator</th>
+        <th>Activity</th>
+        <th>Task</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @user.proposals.each do |step| %>
+    <% if step.status == "in review" || step.status == "new review" %>
+        <tr>
+          <td><%= link_to step.approval_flow.proposal.title, proposal_path(step.approval_flow.proposal)%></td>
+          <td><%= step.approval_flow.proposal.description %></td>
+          <td><%= step.approval_flow.proposal.creator.email %></td>
+          <td><%= step.approval_flow.proposal.created_at.strftime("%e %b %Y") %></td>
+          <td><%= step.status %></td>
+        </tr>
+        <% @counter_approvals += 1  %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<%end  %>

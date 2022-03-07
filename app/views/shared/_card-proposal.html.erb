@@ -1,18 +1,29 @@
+<div>
+<div class="descriptive-items">
+<p></p>
+<p>Description</p>
+<p>Creator</p>
+<p>Activity</p>
+<p>Status</p>
+</div>
 <% @proposals.each do |proposal| %>
   <%#= link_to proposal_path(proposal) %>
     <div class="card-proposal mb-4" >
       <div class="card-proposal-info-top">
         <h2><%= link_to proposal.title, proposal_path(proposal), id: ""%></h2>
         <p><%= proposal.description%></p>
-      </div>
-      <div class="card-proposal-info-bottom">
-        <p class="p-2 bd-highlight"><i class="fas fa-user-astronaut p-2"></i><%= proposal.creator.email %></p>
-        <p class="p-2 bd-highlight"><i class="far fa-calendar-alt p-2"></i> <%= proposal.created_at.strftime("%e %b %Y") %></p>
+        <p class="bd-highlight"><%= proposal.creator.email %></p>
+        <p class="bd-highlight"> <%= proposal.created_at.strftime("%e %b %Y") %></p>
+        <p class="bd-highlight"> <%= proposal.status %></p>
+
         <% link_to "Proposal Page", proposal_path(proposal) %>
       </div>
+      <%# <div class="card-proposal-info-bottom">
+      </div> %>
     </div>
     <% @counter_proposals += 1  %>
 <% end %>
 <% if @counter_proposals == 0 %>
   <p>You haven't created any proposal yet.</p>
 <%end  %>
+</div>

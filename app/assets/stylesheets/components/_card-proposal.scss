@@ -3,6 +3,15 @@
   border: 2px solid $black;
   // box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
+.descriptive-items {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+}
+.card-proposal-info-top {
+  display: flex;
+  justify-content: space-between;
+}
 
 .card-proposal-info-top h2 {
   font-size: 24px;
@@ -15,8 +24,9 @@
 
 .proposal-cards-container {
   margin:auto;
+  justify-content: space-between;
 }
 .card-proposal-info-bottom {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
 }
