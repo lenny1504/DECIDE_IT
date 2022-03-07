@@ -34,6 +34,25 @@
           </div>
         <%end%>
     </div>
-    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), class: "btn btn-home-white ", id: "btn-home-value-prop", style: "margin:auto" %>
+    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn btn-home-white ", id: "btn-home-value-prop", style: "margin:auto" %>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModalStep" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add approver to <%= @approval_flow.proposal.title %>:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for [@approval_flow.proposal, @approval_flow, @step] do |f| %>
+              <%= f.input :approver, label: "Approver email" %> <%# We need to give the possibilty to chose among created users? or just input the email? %>
+              <%= f.submit "Add Approver", class: "btn btn-primary" %>
+          <%  end %>
+      </div>
+    </div>
   </div>
 </div>
