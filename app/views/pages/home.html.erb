@@ -5,41 +5,42 @@
 
 
 
-<div class="container d-flex justify-content-between home-value-prop">
-    <div class="container d-flex flex-column" id="home-value-prop-info">
+<div class="container d-flex justify-content-around home-value-prop">
+    <div class="container d-flex flex-column" id="home-value-prop-info" style="padding: 30px 0px">
         <h2> Effective approval processes for fast growth organizations. </h2>
-        <p> A simple and creative solution </p>
-        <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home" %>
+        <%= link_to "Get Started", new_user_session_path, class: "btn btn-home-white ", id: "btn-home-value-prop" %>
     </div>
     <div class="container d-flex flex-column justify-content-center align-items-baseline">
       <div class="container d-flex card-benefits-home">
-          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
-          <div class="container d-flex flex-column justify-content-start">
-            <h3>Agility</h3>
-            <p>Create flexible approval flows. </p>
+          <%= image_tag "group-1.svg", class: "image-card-home"%>
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Listen and be heard</h3>
+            <p>Create a project and send it directly to the people it needs approval from. </p>
           </div>
       </div>
       <div class="container d-flex card-benefits-home">
-          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
-          <div class="container d-flex flex-column justify-content-start">
-            <h3>Consensus</h3>
-            <p>Ensure internal alignment. </p>
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Increase efficiency</h3>
+            <p>Customize any decision flow according to your project needs.</p>
           </div>
+          <%= image_tag "group-2.svg", class: "image-card-home"%>
       </div>
       <div class="container d-flex card-benefits-home">
-          <img class ="image-card-home" src="https://cdn.dribbble.com/users/594518/screenshots/4958999/media/e075c8ce57e2a8fd5c70a89187308da5.jpg?compress=1&resize=800x600&vertical=top" alt="">
-          <div class="container d-flex flex-column justify-content-start">
-            <h3>High Visibility</h3>
-            <p>Help decision making. </p>
+          <%= image_tag "group-3.svg", class: "image-card-home"%>
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Better decisions</h3>
+            <p>Increase the alignment, efficiency and productivity of your team.</p>
           </div>
       </div>
     </div>
 </div>
 
-<div class="container d-flex flex-column justify-content-center align-items-center" id="home-last-section">
-  <h2>All proposals in a single place</h2>
-  <p>Try it for free</p>
-  <%= link_to "Get Started", new_user_session_path, class: "btn", id: "btn-home-white" %>
+<div style="background-color: #CEDBEE">
+    <div class="container d-flex flex-column justify-content-center align-items-start" id="home-last-section">
+      <%= image_tag "logo-decide-it-long.svg", class: "logo-home-last-section"%>
+      <h2>A new way of working</h2>
+      <%= link_to "Try now for free", new_user_session_path, class: "btn", id: "btn-home-last-section" %>
+    </div>
 </div>
 
 

@@ -1,6 +1,7 @@
 .banner-home {
   padding: 20px 0;
-  height: 80vh;
+  height: 100vh;
+  background: $dark-blue;
 }
 
 .banner h1 {
@@ -19,17 +20,26 @@
 }
 
 #h1-home-banner {
-  font-size: 13vh;
-  color: $dark-blue;
+  font-size: 45px;
+  color: white;
   font-weight: normal;
   font-family: 'Darker Grotesque', sans-serif;
   font-weight: normal;
-  line-height: 11vh;
+  line-height: 7vh;
+  padding-bottom: 15px;
+  width: 50%;
 }
 
 #p-home-banner {
   font-size: 5vh;
-  color: black;
+  color: white;
   font-family: 'Darker Grotesque', sans-serif;
+  margin: auto;
   margin-bottom: 30px;
+  padding: 25px 0px;
+}
+
+.logo-home-banner {
+  width: 600px;
+  height: 190px;
 }

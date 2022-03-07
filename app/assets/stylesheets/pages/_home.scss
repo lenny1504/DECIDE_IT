@@ -21,14 +21,19 @@
 }
 
 #home-value-prop-info {
-  height: 90px;
   position: sticky; top: 55px;
+  height:fit-content;
+  h2 {
+    font-size: 40px;
+    color: $dark-blue;
+  }
 }
 
 .card-benefits-home {
-  border-bottom: 1px solid lightgray ;
+  // border-bottom: 1px solid lightgray ;
   p {
-    font-size: 14px;
+    font-size: 20px;
+    line-height: 20px;
   }
   h3 {
     font-size: 24px;
@@ -39,21 +44,29 @@
 
 #home-last-section {
   height: auto;
-  background: $dark-blue;
+  background: #CEDBEE;
   padding: 120px 0px;
+  width: max-content;
    h2 {
-    font-size: 25px;
-    color: white;
+    font-size: 45px;
+    color: $dark-blue;
     font-weight: lighter;
+    margin: auto;
+    padding-bottom: 20px;
    }
    p {
     font-size: 18px;
-    color: white;
+    color: $dark-blue;
     font-weight: lighter;
    }
 }
 
 .image-card-home {
-  height: 120px;
-  width: 120px;
+  height: 200px;
+  width: 200px;
+}
+
+.logo-home-last-section {
+  width: 550px;
+  height: 200px;
 }
