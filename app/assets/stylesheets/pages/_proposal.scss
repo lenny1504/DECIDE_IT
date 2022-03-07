@@ -1,14 +1,15 @@
-.container-proposal{
-  display: flex;
-  flex-direction: column;
-}
 
+.proposal-box{
+  border: 2px solid $black;
+  padding: 4px;
+}
 .titles h1{
   color: $black;
 }
 
 .titles p {
   color: $black;
+
 }
 
 .approval-flow-proposal {
@@ -16,15 +17,20 @@
 
 }
 
-
-
 .buttons-approve {
   display: flex;
   padding: 3px;
+  justify-content: space-between;
 }
 
+.container-show {
+  display: flex;
+}
 
-.edit-button {
-  margin-left: 3px;
-  margin-top: 5px;
+.proposal-section {
+  width: 60vw;
+}
+
+.progress-section {
+  width: 40vw;
 }

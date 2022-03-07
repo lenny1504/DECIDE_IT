@@ -1,0 +1,21 @@
+<% @user.steps.each do |step| %>
+  <%#= link_to proposal_path(proposal) %>
+  <% if step.status == "in review" || step.status == "new review" %>
+    <div class="card-proposal mb-4">
+        <div class="card-proposal-info-top">
+          <h2><%= link_to step.approval_flow.proposal.title, proposal_path(step.approval_flow.proposal) %></h2>
+          <p><%= step.approval_flow.proposal.description%></p>
+        </div>
+
+        <div class="card-proposal-info-bottom">
+          <p class="p-2 bd-highlight"><i class="fas fa-user-astronaut p-2"></i><%= step.approval_flow.proposal.creator.email %></p>
+          <p class="p-2 bd-highlight"><i class="far fa-calendar-alt p-2"></i> <%= step.approval_flow.proposal.created_at.strftime("%e %b %Y") %></p>
+          <% link_to "Proposal Page", proposal_path(step.approval_flow.proposal) %>
+        </div>
+    </div>
+    <% @counter_approvals += 1  %>
+  <% end %>
+<% end %>
+<% if @counter_approvals == 0 %>
+  <p>You don't have any pending approval requests</p>
+<%end  %>

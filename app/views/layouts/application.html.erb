@@ -6,9 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
@@ -23,7 +24,8 @@
                 <%= yield %>
               </div>
         </div>
+    <% else %>
+      <%= yield %>
     <% end  %>
-    <%= yield %>
   </body>
 </html>

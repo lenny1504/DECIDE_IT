@@ -6,10 +6,13 @@
         <p><%= proposal.description%></p>
       </div>
       <div class="card-proposal-info-bottom">
-        <p class="p-2 bd-highlight"><i class="far fa-calendar-alt"></i> <%= proposal.created_at %></p>
-        <p>Created by: <strong><%= proposal.creator.email %></strong></p>
+        <p class="p-2 bd-highlight"><i class="fas fa-user-astronaut p-2"></i><%= proposal.creator.email %></p>
+        <p class="p-2 bd-highlight"><i class="far fa-calendar-alt p-2"></i> <%= proposal.created_at.strftime("%e %b %Y") %></p>
         <% link_to "Proposal Page", proposal_path(proposal) %>
       </div>
     </div>
-
+    <% @counter_proposals += 1  %>
 <% end %>
+<% if @counter_proposals == 0 %>
+  <p>You haven't created any proposal yet.</p>
+<%end  %>
