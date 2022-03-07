@@ -1,36 +1,76 @@
-
-.proposal-box{
-  border: 2px solid $black;
+.blue-box{
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
   padding: 4px;
+  background-color: $light-blue;
 }
-.titles h1{
-  color: $black;
+
+.progress-section li{
+  list-style-type: none;
 }
 
 .titles p {
-  color: $black;
-
+  color: $grey;
 }
 
 .approval-flow-proposal {
   display: flex;
-
 }
 
 .buttons-approve {
   display: flex;
   padding: 3px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.all-coments-box {
+  background-color: $light-blue;
+}
+
+.comment-item {
+  list-style-type: none;
+  background-color: white;
+  width:80%;
+  margin-top: 20px;
+}
+
+.step-container {
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  line-height: 0px;
+}
+
+.action-header {
+  text-align: center;
+}
+
+.actions-secction {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  padding: 4px;
+  margin: auto;
+  width: 60%;
+}
+
+.approval-flow-actions {
+  // width:80vw;
+  // margin: 0px;
+  // padding: 0px;
+  // padding-left: 14px;
 }
 
 .container-show {
-  display: flex;
+  width: 80vw;
+  background-color: aqua;
 }
 
-.proposal-section {
-  width: 60vw;
-}
+// .proposal-section {
+//   width: 60vw;
+// }
 
-.progress-section {
-  width: 40vw;
-}
+// .progress-section {
+//   width: 40vw;
+// }

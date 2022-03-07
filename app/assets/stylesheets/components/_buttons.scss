@@ -1,18 +1,37 @@
-
+// CREATE proposal / ADD approver / START flow)
 .btn-flat-white {
-  color: $dark-blue;
+  color: $blue;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 2px;
   padding: 12px 20px;
-  border: 3px solid $dark-blue;
-  border-radius: 25px;
+  border: 3px solid $blue;
+  // border-radius: 25px;
   background: white;
   transition: background 0.3s ease;
+  height: fit-content;
 }
 .btn-flat-white:hover {
-  background: $dark-blue;
+  background: $blue;
   color: white;
+}
+
+//SUBMIT form buttons
+.btn-flat-blue {
+  color: $white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  border: 3px solid $blue;
+  // border-radius: 25px;
+  background: $blue;
+  transition: background 0.3s ease;
+  height: fit-content;
+}
+.btn-flat-blue:hover {
+  background: $white;
+  color: $blue;
 }
 
 // APPROVE
@@ -26,6 +45,7 @@
   border-radius: 25px;
   background: $green;
   transition: background 0.3s ease;
+  height: fit-content;
 }
 .btn-green-approve:hover {
   background: $white;
@@ -34,7 +54,7 @@
 }
 
 // CHANGE
-.btn-blue-change {
+.btn-yellow-change {
   color: $white;
   text-decoration: none;
   font-weight: 700;
@@ -42,13 +62,14 @@
   padding: 12px 20px;
   // border: 3px solid black;
   border-radius: 25px;
-  background: $blue;
+  background: $yellow;
   transition: background 0.3s ease;
+  height: fit-content;
 }
-.btn-blue-change:hover {
+.btn-yellow-change:hover {
   background:$white ;
-  color: $blue;
-  border: 3px solid $blue;
+  color: $yellow;
+  border: 3px solid $yellow;
 }
 
 // REJECT
@@ -62,9 +83,11 @@
   border-radius: 25px;
   background: $orange;
   transition: background 0.3s ease;
+  height: fit-content;
 }
 .btn-orange-reject:hover {
   background: $white;
   color: $orange;
   border: 3px solid $orange;
+  height: fit-content;
 }
