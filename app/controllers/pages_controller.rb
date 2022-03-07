@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @proposals = @user.proposals
+
     @counter_approvals = 0
     @counter_change_requests = 0
     @counter_proposals = 0
