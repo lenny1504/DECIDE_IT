@@ -1,0 +1,16 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon-home sticky-top">
+  <div class="container p-0">
+      <div class="container d-flex justify-content-start p-0">
+        <%# <a class="navbar-brand-home" href="#">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+        </a> %>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">Pricing</a>
+      </div>
+      <div class="container d-flex justify-content-end p-0">
+          <a class="nav-link" href="#">Contact Sales</a>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Get Started", new_user_session_path, class: "btn btn-home-white ", id: "btn-home-value-prop" %>
+      </div>
+  </div>
+</div>

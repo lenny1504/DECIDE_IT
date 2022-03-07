@@ -1,41 +1,48 @@
 
+<%= render "shared/navbar-home" %>
 <%= render "shared/home-banner" %>
 
 
-<div class="container" id="personality">
-  <h2 class="category-header pb-4"></h2>
-  <div class="row justify-content-center" id="grid-gap">
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/1815631/screenshots/14598430/media/105f796bf7e3ecae0b5fc9f6eef63ee1.png?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos odd d-flex flex-column">
-            <h2>Agility</h2>
-            <p>Create flexible approval flows</p>
-        </div>
-    </div>
 
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/646089/screenshots/14358445/media/e15e502a716d97c8cd6b882362d65b02.jpg?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos even d-flex flex-column">
-            <h2>High Visibility</h2>
-            <p>Help decision making</p>
-        </div>
-    </div>
 
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/3470960/screenshots/15580151/media/db47e1ed7fdc096ae36bc42bff50564f.png?compress=1&resize=1200x900&vertical=top" />
-        <div class="card-trip-infos odd d-flex flex-column">
-            <h2>Consensus</h2>
-            <p>Ensure internal alignment</p>
-        </div>
+<div class="container d-flex justify-content-around home-value-prop">
+    <div class="container d-flex flex-column" id="home-value-prop-info" style="padding: 30px 0px">
+        <h2> Effective approval processes for fast growth organizations. </h2>
+        <%= link_to "Get Started", new_user_session_path, class: "btn btn-home-white ", id: "btn-home-value-prop" %>
     </div>
-
-    <div class="card-trip col">
-        <img src="https://cdn.dribbble.com/users/1286696/screenshots/4143669/media/fb300c3fa154653f60a7379dacd8d3df.png?compress=1&resize=800x600&vertical=top" />
-        <div class="card-trip-infos even d-flex flex-column">
-            <h2>Scalability</h2>
-            <p>For fast growth organizations</p>
-        </div>
+    <div class="container d-flex flex-column justify-content-center align-items-baseline">
+      <div class="container d-flex card-benefits-home">
+          <%= image_tag "group-1.svg", class: "image-card-home"%>
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Listen and be heard</h3>
+            <p>Create a project and send it directly to the people it needs approval from. </p>
+          </div>
+      </div>
+      <div class="container d-flex card-benefits-home">
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Increase efficiency</h3>
+            <p>Customize any decision flow according to your project needs.</p>
+          </div>
+          <%= image_tag "group-2.svg", class: "image-card-home"%>
+      </div>
+      <div class="container d-flex card-benefits-home">
+          <%= image_tag "group-3.svg", class: "image-card-home"%>
+          <div class="container d-flex flex-column justify-content-end">
+            <h3>Better decisions</h3>
+            <p>Increase the alignment, efficiency and productivity of your team.</p>
+          </div>
+      </div>
     </div>
-
-  </div>
 </div>
+
+<div style="background-color: #CEDBEE">
+    <div class="container d-flex flex-column justify-content-center align-items-start" id="home-last-section">
+      <%= image_tag "logo-decide-it-long.svg", class: "logo-home-last-section"%>
+      <h2>A new way of working</h2>
+      <%= link_to "Try now for free", new_user_session_path, class: "btn", id: "btn-home-last-section" %>
+    </div>
+</div>
+
+
+
+<%= render "shared/footer-home" %>
