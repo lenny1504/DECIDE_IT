@@ -11,7 +11,7 @@ class StepsController < ApplicationController
     @step.approver = User.find_by(email: step_params["approver"])
     @approval_flow = ApprovalFlow.find(params[:approval_flow_id])
     @step.approval_flow = @approval_flow
-    if (@approval_flow.steps.first) && (@approval_flow.steps.first.status != "created")
+    if (@approval_flow.steps.first) && (@approval_flow.steps.first.status != "created") && (@approval_flow.steps.last.status == "approved")
       @step.status = "in review"
     end
     if @step.save
