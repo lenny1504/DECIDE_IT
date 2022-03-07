@@ -13,3 +13,44 @@
 
 
  <p><%= link_to  "Add new step to flow", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>
+
+<div class="container d-flex approval-flow-main-box">
+  <div class="container d-flex flex-column">
+      <h1><%= @approval_flow.name %></h1>
+      <h2>Proposal</h2>
+      <p><%= link_to @approval_flow.proposal.title, proposal_path(@approval_flow.proposal)%></p>
+      <h2>Description </h2>
+      <p><%= @approval_flow.description%></p>
+  </div>
+  <div class="container d-flex flex-column">
+    <div class="container d-flex">
+        <i class="fas fa-history blue" style="font-size: 30px; padding-top: 9px; padding-right: 8px"></i>
+        <h1>Approvers</h1>
+    </div>
+    <div class="container d-flex flex-column">
+        <% @ordered_steps.each_with_index do |step, i| %>
+          <% case step.status %>
+            <% when 'approved' %>
+              <% color = "green" %>
+            <% when 'rejected' %>
+              <% color = "red" %>
+            <% when 'created' %>
+              <% color = "blue" %>
+            <% when 'change request' %>
+              <% color = "yellow" %>
+            <% when 'in review' %>
+              <% color = "yellow" %>
+            <% when 'new review' %>
+              <% color = "yellow" %>
+          <% end %>
+          <div class="container d-flex light-blue step-card justify-content-between" style="margin-bottom: 5px">
+              <div><i class="fas fa-square blue <%=color%>"></i></div>
+              <div><%= step.approver.first_name %> <%= step.approver.last_name %>  </div>
+              <div><%= step.status %></div>
+          </div>
+        <%end%>
+
+    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), class: "btn btn-home-white ", id: "btn-home-value-prop" %>
+    </div>
+  </div>
+</div>
