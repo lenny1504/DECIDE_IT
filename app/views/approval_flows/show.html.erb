@@ -33,8 +33,7 @@
               <div style="margin-right: auto"><%= step.status.capitalize %></div>
           </div>
         <%end%>
-
-    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), class: "btn btn-home-white ", id: "btn-home-value-prop", style: "margin:auto" %>
     </div>
+    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), class: "btn btn-home-white ", id: "btn-home-value-prop", style: "margin:auto" %>
   </div>
 </div>
