@@ -1,47 +1,47 @@
-
 <%= render "shared/navbar-home" %>
 <%= render "shared/home-banner" %>
 
-
-
 <div class="container d-flex justify-content-around home-value-prop">
-    <div class="container d-flex flex-column" id="home-value-prop-info" style="padding: 30px 0px">
-        <h2> Effective approval processes for fast growth organizations. </h2>
-        <%= link_to "Get Started", new_user_session_path, class: "btn btn-home-white ", id: "btn-home-value-prop" %>
+
+  <div class="container sticky-approval d-flex flex-column" id="home-value-prop-info" style="padding: 30px 0px">
+      <h2> Effective approval processes for fast growth organizations. </h2>
+      <%= link_to "Get Started", new_user_session_path, class: "btn-flat-white" %>
+  </div>
+
+  <div class="container d-flex flex-column justify-content-center align-items-baseline">
+    <div class="container d-flex card-benefits-home">
+        <%= image_tag "group-1.svg", class: "image-card-home m-3"%>
+        <div class="container listen d-flex flex-column justify-content-end">
+          <h2>Listen and be heard</h2>
+          <p>Create a project and send it directly to the people it needs approval from. </p>
+        </div>
     </div>
-    <div class="container d-flex flex-column justify-content-center align-items-baseline">
-      <div class="container d-flex card-benefits-home">
-          <%= image_tag "group-1.svg", class: "image-card-home"%>
-          <div class="container d-flex flex-column justify-content-end">
-            <h3>Listen and be heard</h3>
-            <p>Create a project and send it directly to the people it needs approval from. </p>
-          </div>
-      </div>
-      <div class="container d-flex card-benefits-home">
-          <div class="container d-flex flex-column justify-content-end">
-            <h3>Increase efficiency</h3>
-            <p>Customize any decision flow according to your project needs.</p>
-          </div>
-          <%= image_tag "group-2.svg", class: "image-card-home"%>
-      </div>
-      <div class="container d-flex card-benefits-home">
-          <%= image_tag "group-3.svg", class: "image-card-home"%>
-          <div class="container d-flex flex-column justify-content-end">
-            <h3>Better decisions</h3>
-            <p>Increase the alignment, efficiency and productivity of your team.</p>
-          </div>
-      </div>
+    <div class="container card-benefits-home d-flex">
+        <div class="container efficiency d-flex flex-column justify-content-end">
+          <h2 style="text-align: right">Increase efficiency</h2>
+          <p style="text-align: right">Customize any decision flow according to your project needs.</p>
+        </div>
+        <%= image_tag "group-2.svg", class: "image-card-home m-3"%>
     </div>
+    <div class="container d-flex card-benefits-home">
+        <%= image_tag "group-3.svg", class: "image-card-home m-3"%>
+        <div class="container d-flex flex-column justify-content-end">
+          <h2>Better decisions</h2>
+          <p>Increase the alignment, efficiency and productivity of your team.</p>
+        </div>
+    </div>
+  </div>
 </div>
+
+<%= render "shared/testimonials" %>
 
 <div style="background-color: #CEDBEE">
     <div class="container d-flex flex-column justify-content-center align-items-start" id="home-last-section">
       <%= image_tag "logo-decide-it-long.svg", class: "logo-home-last-section"%>
       <h2>See your ideas come to life</h2>
-      <%= link_to "Try now for free", new_user_session_path, class: "btn", id: "btn-home-last-section" %>
+      <%= link_to "Free trial", new_user_session_path, class: "btn", id: "btn-home-last-section" %>
     </div>
 </div>
 
-<%= render "shared/testimonials" %>
 
 <%= render "shared/footer-home" %>
