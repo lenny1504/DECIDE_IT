@@ -20,8 +20,9 @@ class ProposalsController < ApplicationController
   end
 
   def update
+    @proposal = Proposal.find(params[:id])
     if @proposal.update(proposal_params)
-      redirect_to proposal_path(@character)
+      redirect_to proposal_path(@proposal.id), notice: 'Proposal was successfully updated.'
     else
       render "proposals/edit"
     end
