@@ -1,36 +1,116 @@
-
-.proposal-box{
-  border: 2px solid $black;
+.blue-box{
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
   padding: 4px;
+  background-color: $light-blue;
 }
-.titles h1{
-  color: $black;
+
+.progress-section li{
+  list-style-type: none;
 }
 
 .titles p {
-  color: $black;
-
+  color: $grey;
 }
 
 .approval-flow-proposal {
   display: flex;
-
 }
 
 .buttons-approve {
   display: flex;
   padding: 3px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.all-coments-box {
+  background-color: $light-blue;
+}
+.comment-form {
+  align-items: center;
+}
+
+.form-control {
+  // width: -webkit-fill-available
+  width: 360px;
+//   height: 100px;
+}
+
+.add-comment-box h3 {
+  margin:0;
+  margin-top: 32px;
+}
+
+.comments-section {
+  margin: auto;
+  width: 75vw;
+}
+
+.comment-item {
+  list-style-type: none;
+  background-color: white;
+  width:80%;
+  margin-top: 20px;
+  // margin:auto;
+}
+
+.step-container {
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  line-height: 0px;
+}
+
+.action-header {
+  text-align: center;
+}
+
+.actions-secction {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  padding: 4px;
+  margin: auto;
+  width: 60%;
+}
+
+.approval-flow-actions {
+  margin: auto;
 }
 
 .container-show {
-  display: flex;
+  width: 80vw;
+  // background-color: darkslategrey;
+}
+
+.blue-p {
+  font-size: 16px;
+  color: $blue;
+  font-family: 'Trispace', sans-serif;
+  font-weight: 500;
 }
 
 .proposal-section {
-  width: 60vw;
+  width: 28vw;
 }
 
 .progress-section {
-  width: 40vw;
+  width: 36vw;
+}
+.progress-section .blue-p{
+  font-size: 12px;
+}
+.progress-section p{
+  font-size: 12px;
+}
+
+#edit-icon {
+  font-size: 28;
+  padding-left: 10px;
+}
+
+.approved-section {
+  margin:auto;
+  width: 75vw;
 }

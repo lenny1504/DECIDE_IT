@@ -1,7 +1,7 @@
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
+.banner-home {
+  padding: 20px 0;
+  height: 100vh;
+  background: $dark-blue;
 }
 
 .banner h1 {
@@ -17,4 +17,29 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#h1-home-banner {
+  font-size: 45px;
+  color: white;
+  font-weight: normal;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-weight: normal;
+  line-height: 7vh;
+  padding-bottom: 15px;
+  width: 50%;
+}
+
+#p-home-banner {
+  font-size: 5vh;
+  color: white;
+  font-family: 'Darker Grotesque', sans-serif;
+  margin: auto;
+  margin-bottom: 30px;
+  padding: 25px 0px;
+}
+
+.logo-home-banner {
+  width: 600px;
+  height: 190px;
 }

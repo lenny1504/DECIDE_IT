@@ -19,19 +19,54 @@ h1 {
   font-size: 36px;
   font-weight: 600;
   color: $dark-blue;
+  font-family: $headers-font;
 }
 
 h2 {
   font-size: 28px;
+  color: $dark-blue;
+  font-family: $headers-font;
+}
+
+
+h3 {
+  font-size: 22px;
   color: $blue;
+  font-family: 'Trispace', sans-serif;
+}
+
+h4 {
+  font-size: 18px;
+  color: $dark-blue;
+  font-family: $headers-font;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 16px;
+  color: $blue;
+  font-family: 'Trispace', sans-serif;
+  font-weight: 500;
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  letter-spacing: 1px;
   color: $black;
-  font-family: $headers-font;
+  font-family: $body-font;
 }
+
+a {
+  color: $blue;
+  font-family: 'Trispace', sans-serif;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $dark-blue;
+}
+
 
 .side-container {
   width:94%;
@@ -45,13 +80,4 @@ p {
 
 .page-container{
   display:flex;
-}
-
-a {
-  color: $blue;
-  text-decoration: none;
-}
-
-a:hover {
-  color: $dark-blue;
 }
