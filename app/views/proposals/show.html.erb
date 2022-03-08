@@ -15,11 +15,11 @@
           <h4>Description</h4>
           <p><%= @proposal.description %></p>
           <div class="proposal-details d-flex justify-content-between mt-4">
-            <div class="proposal-status">
+            <div class="proposal-status m-2">
               <h4>Status</h4>
               <p><%= @proposal.status.capitalize  %></p>
             </div>
-            <div class="proposal-budget">
+            <div class="proposal-budget  m-2">
               <h4>Budget</h4>
               <% if @proposal.budget %>
                 <p><%=@proposal.budget.round %>€</p>
@@ -27,11 +27,11 @@
                 <p>-</p>
               <% end %>
             </div>
-            <div class="proposal-due-date">
+            <div class="proposal-due-date  m-2">
               <h4>Due date </h4>
               <p><%=@proposal.due_date %></p>
             </div>
-            <div class="proposal-scope">
+            <div class="proposal-scope  m-2">
             <h4>Scope</h4>
             <% if @proposal.scope %>
               <p><%=@proposal.scope.capitalize %></p>
@@ -123,7 +123,7 @@
 
   <div class="buttons-and-comments row mt-3">
     <% if @action_step  %>
-    <div class="actions-secction">
+    <div class="actions-section">
         <h2 class="action-header mt-5 mb-5">What do you want to do?</h2>
         <div class="buttons-approve mb-5">
           <%= link_to "Approve", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
@@ -185,7 +185,7 @@
   <% if @proposal.steps.first  %>
     <div class="comments-section">
       <div class="add-comment-box mt-3">
-        <h3>+ Add a comment</h3>
+        <h3 class="mb-1">+ Add a comment</h3>
         <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
               <div class="comment-form d-flex justify-content-start ">
                 <%= f.input :content, label: "", wrapper_html: { class: 'd-flex flex-row-reverse' }, label_html: { style: "display: none" } %>
@@ -196,8 +196,8 @@
   <% end %>
 
   <% if @proposal.steps.first  %>
-    <div class="all-coments-box mt-3 p-5">
-      <h3 class="mb-5">All Comments:</h3>
+    <div class="all-comments-box mt-3 p-5">
+      <h3 class="mb-1">All Comments:</h3>
   <% end  %>
           <% if @ordered_steps %>
             <% @ordered_steps.each do |step| %>
