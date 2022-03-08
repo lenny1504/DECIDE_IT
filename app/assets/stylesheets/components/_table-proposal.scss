@@ -1,12 +1,12 @@
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
-  background-color: lightblue !important;
+  background-color: $light-blue !important;
 }
 
 table {
   border-collapse: collapse;
   width: 1000px;
   border: none;
-  background-color: lightblue;
+  background-color: $light-blue;
 }
 table td {
   padding: 1rem;
@@ -25,4 +25,15 @@ th{
 .p-tag-dashboard {
   font-size: large;
   font-weight: 600;
+}
+
+.display-message {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 36px;
+}
+
+.nav-link {
+  font-size: 22px;
 }

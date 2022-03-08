@@ -11,5 +11,6 @@ class PagesController < ApplicationController
     @counter_approvals = 0
     @counter_change_requests = 0
     @counter_proposals = 0
+    @counter_tasks = 0
   end
 end
