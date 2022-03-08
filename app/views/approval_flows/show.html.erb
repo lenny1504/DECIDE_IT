@@ -1,6 +1,6 @@
 <div class="container d-flex approval-flow-main-box" style="padding: 20px">
   <div class="container d-flex flex-column">
-      <h1><%= @approval_flow.name %></h1>
+      <h1><%= @approval_flow.name.capitalize %></h1>
       <h2>Proposal</h2>
       <p><%= link_to @approval_flow.proposal.title, proposal_path(@approval_flow.proposal)%></p>
       <h2>Description </h2>
