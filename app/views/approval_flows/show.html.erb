@@ -40,6 +40,7 @@
 
 
 
+
 <div class="modal fade" id="exampleModalStep" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -56,3 +57,6 @@
     </div>
   </div>
 </div>
+
+<p><%= link_to "Add approvers", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>
+
