@@ -25,6 +25,8 @@
 
 .all-coments-box {
   background-color: $light-blue;
+  border: 1px solid #576BB1;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
 }
 .comment-form {
   align-items: flex-start;

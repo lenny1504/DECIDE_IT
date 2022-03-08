@@ -15,7 +15,7 @@ class StepsController < ApplicationController
       @step.status = "in review"
     end
     if @step.save
-      redirect_to approval_flow_path(@approval_flow)
+      redirect_to proposal_path(@approval_flow.proposal)
     end
   end
 
@@ -70,6 +70,7 @@ class StepsController < ApplicationController
     # send notification to initiator
     @user = current_user
     create_log(@step, @original_status, @step.status, @user)
+    # redirect_to dashboard_path
   end
 
   def create_log(step, original_status, updated_status, user)
