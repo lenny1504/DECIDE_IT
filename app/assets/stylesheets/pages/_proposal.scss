@@ -116,3 +116,21 @@
   margin:auto;
   width: 75vw;
 }
+
+.final-approval-section {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  padding: 4px;
+  margin: auto;
+  width: 60%;
+}
+
+.final-approval-header {
+}
+
+.end-message-approval-section {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  padding: 4px;
+  margin: auto;
+}

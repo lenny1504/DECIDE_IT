@@ -79,15 +79,12 @@
             <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
       <% end %>
     </div>
-    <div class="approval-flow-if-created">
+    <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-        <div class="">
-          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
-        </div>
-        <% else %>
-          <div class="">
-            <%= link_to "Add approvers", "#", class: "btn-flat-white col-2" %>
-          </div>
+          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white mb-3" %>
+      <% end %>
+      <% if @proposal.status == "initiated" || @proposal.status == "in review" %>
+          <%= link_to "Add approvers", "#", class: "btn-flat-white col-2", style: "width: fit-content;" %>
       <% end %>
     </div>
   </div>
@@ -103,11 +100,11 @@
 
           <%= link_to "Reject", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
 
-          <%= link_to "Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-yellow-change" %>
+          <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-yellow-change" %>
         </div>
       <% end  %>
       <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
-        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
+        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "buttons-approve mb-5 btn-green-approve", style: "width: fit-content; margin: auto; padding: 5px 15px;" %>
       <% end  %>
 
       <%# --- modal --- %>
@@ -133,20 +130,26 @@
 
     <div class="approved-section">
       <% if @proposal.status == "approved"  %>
-      <div class="final-approval-section text-center m-5">
-        <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
+        <div class="end-message-approval-section d-flex flex-column justify-content-start align-items-center p-5 mt-3">
+            <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
+        </div>
+      <%end %>
+      <% if @proposal.status == "rejected"  %>
+        <div class="end-message-approval-section d-flex flex-column justify-content-start align-items-center p-5 mt-3">
+            <h3> The proposal has been rejected. </h3>
         </div>
       <%end %>
 
+
       <% if @proposal.steps.first %>
         <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
-          <div class="final-approval-section d-flex justify-content-satr align-items-center pl-5 pr-5 mt-3">
-            <div class="final-approval-text mr-5">
-              <h5>You are the final approver!</h5>
-              <h5>Please add a new approver if necessary or confirm the approval.</h5>
+            <div class="final-approval-section d-flex flex-column justify-content-start align-items-center pl-5 pr-5 mt-3">
+              <%# <div class="final-approval-text mr-5"> %>
+                <h4 class="final-approval-header mt-5 mb-3 p-2" style="text-align:center;" >You are the final approver of this proposal! <br>  Please add a new approver if necessary or confirm the approval.</h4>
+                <%# <h5>Please add a new approver if necessary or confirm the approval.</h5> %>
+                <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
+              <%# </div> %>
             </div>
-            <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
-          </div>
         <% end  %>
       <% end  %>
     </div>
