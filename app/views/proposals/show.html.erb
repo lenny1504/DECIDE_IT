@@ -85,10 +85,10 @@
     </div>
     <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-            <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
+            <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white", style: "width: fit-content;" %>
       <% end %>
       <% if (@proposal.approval_flow) && (@proposal.status == "initiated" || @proposal.status == "in review") %>
-             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2" %>
+             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2", style: "width: fit-content;" %>
       <% end %>
     </div>
   </div>
@@ -119,10 +119,8 @@
         <h2 class="action-header mt-5 mb-5">What do you want to do?</h2>
         <div class="buttons-approve mb-5">
           <%= link_to "Approve", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
-
-          <%= link_to "Reject", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
-
           <%= link_to "Request Change", step_request_change_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-yellow-change" %>
+          <%= link_to "Reject", step_reject_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-orange-reject" %>
         </div>
       <% end  %>
       <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
