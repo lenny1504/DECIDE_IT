@@ -1,0 +1,26 @@
+<table class="dashboard-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Creator</th>
+      <th>Activity</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @proposals.each do |proposal| %>
+      <tr>
+        <td> <p class= "p-tag-dashboard"><%= link_to proposal.title, proposal_path(proposal), id: ""%></p></td>
+        <td> <p><%= proposal.description%></p></td>
+        <td> <p><%= proposal.creator.email %></p></td>
+        <td> <p><%= proposal.created_at.strftime("%e %b %Y") %></p></td>
+        <td> <p><%= proposal.status %></p></td>
+      </tr>
+    <% end %>
+     <% @counter_proposals += 1  %>
+  <% if @counter_proposals == 0 %>
+  <p>You haven't created any proposal yet.</p>
+  <%end  %>
+  </tbody>
+</table>

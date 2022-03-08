@@ -1,0 +1,28 @@
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  background-color: lightblue !important;
+}
+
+table {
+  border-collapse: collapse;
+  width: 1000px;
+  border: none;
+  background-color: lightblue;
+}
+table td {
+  padding: 1rem;
+  text-align: left;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+tbody tr{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+th{
+  padding: 1rem;
+}
+.p-tag-dashboard {
+  font-size: large;
+  font-weight: 600;
+}
