@@ -1,17 +1,18 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm fixed-left navbar-light navbar-lewagon sticky">
   <div class="container-fluid">
     <div class="home-logo">
-      <%= link_to root_path, class: "nav-item" do %>
-        <i class="fi fi-rs-home"></i>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo-decide-it-short.svg" %>
       <% end %>
-      </div>
+    </div>
+
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto" id="nav-user">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to proposals_path do %>
-              <i class="fi fi-rs-layers"></i>
+              <i class="fi fi-rs-list"></i>
             <% end %>
           </li>
           <li class="nav-item">
@@ -19,14 +20,14 @@
               <i class="fi fi-rs-plus"></i>
             <% end %>
           </li>
-          <li class="nav-item search">
+          <%# <li class="nav-item search-icon">
             <%= link_to "#" do %>
-              <i class="fi fi-rs-search"></i>
-            <% end %>
-          </li>
+              <%# <i class="fas fa-search"></i> %>
+            <%# <% end %>
+          <%# </li> %>
           <li class="nav-item">
             <%= link_to dashboard_path do %>
-              <i class="fi fi-rs-dashboard"></i>
+              <i class="fi fi-rs-layout-fluid"></i>
             <% end %>
           </li>
           <li class="nav-item notifications">

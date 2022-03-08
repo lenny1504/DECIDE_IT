@@ -42,6 +42,15 @@ flex-direction: column;
   margin-top: 30px;
 }
 
-// .index-all {
-//   margin-top: 25px;
-// }
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.navbar-brand {
+  margin: 0 auto;
+}
+.navbar-brand img{
+  width: 4vw;
+}
