@@ -2,11 +2,9 @@
 
 .home-value-prop {
   height: auto;
-  padding: 60px 0px;
+  margin-top: 32px;
   h2 {
     font-size: 20px;
-    font-weight: lighter;
-    color: $dark-blue;
     // padding-right: 50px;
     // width: 30vw;
   }
@@ -21,7 +19,8 @@
 }
 
 #home-value-prop-info {
-  position: sticky; top: 55px;
+  position: sticky;
+  top: 32px;
   height:fit-content;
   h2 {
     font-size: 40px;
@@ -37,6 +36,7 @@
   }
   h3 {
     font-size: 24px;
+    font-family: 'Poppins', sans-serif;
     color: $dark-blue;
     margin: 0px;
   }
@@ -50,7 +50,7 @@
   h2 {
     font-size: 45px;
     color: $dark-blue;
-    font-weight: lighter;
+    // font-weight: lighter;
     margin: auto;
     padding-bottom: 20px;
   }

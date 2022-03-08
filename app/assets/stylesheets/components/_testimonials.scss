@@ -1,0 +1,78 @@
+.bg-testimonials {
+  background-color: $light-blue;
+  height: 93vh;
+  width: 100vw;
+  margin:0;
+}
+
+.banner-testimonial {
+  height: 93vh;
+}
+
+.testimonial-container {
+  margin: 1rem;
+  padding: 2.5rem;
+  flex-direction: column;
+  width: 40%;
+  position: relative;
+  top: 34px;
+}
+
+.client-text-container {
+  position: relative;
+  height: 80%
+}
+
+.client-text-container img{
+  height: 50px;
+  width: 50px;
+  position: relative;
+  top: 18px;
+}
+
+.header-text {
+  position: relative;
+  top: 38px;
+}
+
+.header-text p{
+  // font-size: 26px;
+  font-weight: lighter;
+}
+
+.header-text h4{
+  font-size: 26px;
+  font-weight: bold;
+  font-family: 'Aleo', serif;
+}
+
+.client-image-container {
+  margin: 1rem;
+  padding: 2.5rem;
+  position: relative;
+  // flex-direction: column;
+  width: 40%;
+  height: 80%;
+}
+
+.bg-square img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  object-position: right bottom;
+  position: absolute;
+  left: 18px;
+  top: 217px;
+  box-shadow: 100px -110px $white;
+}
+
+.bg-testimonials a {
+  color: $dark-blue;
+  font-weight: 500;
+  position:relative;
+  top: 84px;
+}
+
+.bg-testimonials a:hover {
+  color: white;
+}
