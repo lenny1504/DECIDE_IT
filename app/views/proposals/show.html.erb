@@ -17,7 +17,7 @@
           <div class="proposal-details d-flex justify-content-between mt-4">
             <div class="proposal-status">
               <h4>Status</h4>
-              <p><%= @proposal.status  %></p>
+              <p><%= @proposal.status.capitalize  %></p>
             </div>
             <div class="proposal-budget">
               <h4>Budget</h4>
@@ -34,7 +34,7 @@
             <div class="proposal-scope">
             <h4>Scope</h4>
             <% if @proposal.scope %>
-              <p><%=@proposal.scope %></p>
+              <p><%=@proposal.scope.capitalize %></p>
             <% else %>
               <p>-</p>
             <% end %>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="approval-flow-actions d-flex align-items-center justify-content-around">
-      <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
+      <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@ordered_steps.first.status == "created") && (@proposal.creator == current_user) %>
         <div class="approval-flow-start">
             <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
       <% end %>
@@ -132,7 +132,7 @@
         </div>
       <% end  %>
       <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
-        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "buttons-approve mb-5 btn-green-approve", style: "width: fit-content; margin: auto; padding: 5px 15px;" %>
+        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "buttons-approve mb-5 btn-green-approve", style: "width: fit-content; margin: auto; padding: 8px 22px; font-size: 24px" %>
       <% end  %>
 
       <%# --- modal --- %>
@@ -173,7 +173,7 @@
         <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
             <div class="final-approval-section d-flex flex-column justify-content-start align-items-center pl-5 pr-5 mt-3">
               <%# <div class="final-approval-text mr-5"> %>
-                <h4 class="final-approval-header mt-5 mb-3 p-2" style="text-align:center;" >You are the final approver of this proposal! <br>  Please add a new approver if necessary or confirm the approval.</h4>
+                <h4 class="final-approval-header mt-5 mb-3 p-2" style="text-align:center;" >You are the final approver of this proposal. <br>  Please add a new approver if necessary or confirm the approval.</h4>
                 <%# <h5>Please add a new approver if necessary or confirm the approval.</h5> %>
                 <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
               <%# </div> %>

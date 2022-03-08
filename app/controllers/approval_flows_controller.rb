@@ -10,7 +10,7 @@ class ApprovalFlowsController < ApplicationController
     @approval_flow.creator = current_user
     @approval_flow.proposal = Proposal.find(params[:proposal_id])
     if @approval_flow.save
-      redirect_to approval_flow_path(@approval_flow), notice: "Your approval flow has been created"
+      redirect_to proposal_path(@approval_flow.proposal), notice: "Your approval flow has been created"
     else
       # not sure about this else
       render "approval_flow/new"

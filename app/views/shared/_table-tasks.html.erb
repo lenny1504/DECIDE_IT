@@ -30,7 +30,7 @@
               <%# <td><%= step.approval_flow.proposal.description</td> %>
               <td><%= step.approval_flow.proposal.creator.first_name %> <%=step.approval_flow.proposal.creator.last_name %></td>
               <td><%= step.approval_flow.proposal.created_at.strftime("%e %b %Y") %></td>
-              <td><i class="fas fa-square blue <%=color%>"></i>  <%= step.status %></td>
+              <td><i class="fas fa-square blue <%=color%>"></i>  <%= step.status.capitalize %></td>
             </tr>
             <% @counter_tasks += 1 %>
         <% end %>
@@ -47,7 +47,7 @@
               <%# <td><p><%= step.approval_flow.proposal.description</p></td> %>
              <td><%= step.approval_flow.proposal.creator.first_name %> <%=step.approval_flow.proposal.creator.last_name%></td>
               <td><%= step.approval_flow.proposal.created_at.strftime("%e %b %Y") %></td>
-               <td><i class="fas fa-square blue <%=color%>"></i> <%= step.status %></td>
+               <td><i class="fas fa-square blue <%=color%>"></i> <%= step.status.capitalize %></td>
             </tr>
         <% @counter_tasks += 1  %>
     <% end %>
