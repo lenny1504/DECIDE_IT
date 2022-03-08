@@ -70,7 +70,8 @@
         <div class="">
           <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
         </div>
-        <% else %>
+      <% end %>
+      <% if @proposal.status == "initiated" || @proposal.status == "in review" %>
           <div class="">
             <%= link_to "Add approvers", "#", class: "btn-flat-white col-2" %>
           </div>
