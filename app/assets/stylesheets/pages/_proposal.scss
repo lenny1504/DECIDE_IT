@@ -30,11 +30,14 @@
   align-items: flex-start;
 }
 
-.form-control {
-  // width: -webkit-fill-available
-  width: 360px;
-//   height: 100px;
+#comment_content {
+  width: 50vw;
 }
+
+// resizes all the text input boxes in all the forms
+// .form-control {
+//   width: 100%;
+// }
 
 .add-comment-box h3 {
   margin:0;
@@ -58,7 +61,7 @@
   background-color: white;
   height: 30px;
   width: 100%;
-  padding: 20px;
+  padding-left: 20px;
   margin-bottom: 10px;
   line-height: 0px;
   display: flex;
@@ -94,7 +97,7 @@
 }
 
 .proposal-section {
-  width: 28vw;
+  width: 32vw;
 }
 
 .progress-section {
