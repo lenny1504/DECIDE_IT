@@ -30,11 +30,14 @@
   align-items: flex-start;
 }
 
-.form-control {
-  // width: -webkit-fill-available
-  width: 360px;
-//   height: 100px;
+#comment_content {
+  width: 50vw;
 }
+
+// resizes all the text input boxes in all the forms
+// .form-control {
+//   width: 100%;
+// }
 
 .add-comment-box h3 {
   margin:0;

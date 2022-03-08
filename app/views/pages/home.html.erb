@@ -4,7 +4,6 @@
 
 
 
-
 <div class="container d-flex justify-content-around home-value-prop">
     <div class="container d-flex flex-column" id="home-value-prop-info" style="padding: 30px 0px">
         <h2> Effective approval processes for fast growth organizations. </h2>
@@ -38,11 +37,11 @@
 <div style="background-color: #CEDBEE">
     <div class="container d-flex flex-column justify-content-center align-items-start" id="home-last-section">
       <%= image_tag "logo-decide-it-long.svg", class: "logo-home-last-section"%>
-      <h2>A new way of working</h2>
+      <h2>See your ideas come to life</h2>
       <%= link_to "Try now for free", new_user_session_path, class: "btn", id: "btn-home-last-section" %>
     </div>
 </div>
 
-
+<%= render "shared/testimonials" %>
 
 <%= render "shared/footer-home" %>
