@@ -80,11 +80,11 @@
       <% end %>
     </div>
     <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>   
+      <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
             <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
       <% end %>
       <% if @proposal.status == "initiated" || @proposal.status == "in review" %>
-             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2" %>
+             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2", style: "width: fit-content;" %>
       <% end %>
     </div>
   </div>
