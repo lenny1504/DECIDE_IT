@@ -22,6 +22,7 @@ class ApprovalFlowsController < ApplicationController
     @proposal = @approval_flow.proposal
     # @step = Step.new
     @ordered_steps = @approval_flow.steps.order('created_at asc') if @approval_flow.steps
+    @step = Step.new
   end
 
   def destroy
