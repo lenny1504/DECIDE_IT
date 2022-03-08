@@ -27,6 +27,10 @@
               <h4>Due date </h4>
               <p><%=@proposal.due_date %></p>
             </div>
+            <div class="proposal-scope">
+            <h4>Scope</h4>
+            <p><%=@proposal.scope %></p>
+            </div>
           </div>
         </div>
       </div>
@@ -83,8 +87,8 @@
       <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
             <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
       <% end %>
-      <% if @proposal.status == "initiated" || @proposal.status == "in review" %>
-             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2", style: "width: fit-content;" %>
+      <% if (@proposal.approval_flow) && (@proposal.status == "initiated" || @proposal.status == "in review") %>
+             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2" %>
       <% end %>
     </div>
   </div>
@@ -98,10 +102,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <% if @proposal.approval_flow %>
           <%= simple_form_for [@proposal, @proposal.approval_flow, @step] do |f| %>
               <%= f.input :approver, label: "Approver email" %> <%# We need to give the possibilty to chose among created users? or just input the email? %>
               <%= f.submit "Add Approver", class: "btn btn-primary" %>
           <%  end %>
+        <% end %>
       </div>
     </div>
   </div>
