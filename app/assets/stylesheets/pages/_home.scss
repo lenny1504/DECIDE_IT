@@ -3,19 +3,19 @@
 .home-value-prop {
   height: auto;
   padding: 60px 0px;
-   h2 {
+  h2 {
     font-size: 20px;
     font-weight: lighter;
     color: $dark-blue;
     // padding-right: 50px;
     // width: 30vw;
-   }
-   div {
-     width: 35vw;
-     margin: 8px 0px;
-     padding-bottom: 12px;
-   }
-   p {
+  }
+  div {
+    width: 35vw;
+    margin: 8px 0px;
+    padding-bottom: 12px;
+  }
+  p {
     font-size: 14px;
   }
 }
@@ -47,18 +47,18 @@
   background: #CEDBEE;
   padding: 120px 0px;
   width: max-content;
-   h2 {
+  h2 {
     font-size: 45px;
     color: $dark-blue;
     font-weight: lighter;
     margin: auto;
     padding-bottom: 20px;
-   }
-   p {
+  }
+  p {
     font-size: 18px;
     color: $dark-blue;
     font-weight: lighter;
-   }
+  }
 }
 
 .image-card-home {

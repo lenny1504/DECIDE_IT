@@ -106,7 +106,6 @@
   opacity: 1;
 }
 
-
 .btn-home {
   background: $dark-blue;
   color:white;
@@ -130,11 +129,19 @@
 }
 
 #btn-home-banner {
-  background: linear-gradient(90deg, #FFFFFF 9.85%, #CEDBEE 98.01%);
-  border-radius: 50px;
+  background: linear-gradient(90deg, #FFBE44, #576BB1);;
+  // background: linear-gradient(90deg, #FFFFFF 9.85%, #CEDBEE 98.01%);
+  border: 2px solid $dark-blue;
+  border-radius: 25px;
   color: $dark-blue;
-  padding: 5px 20px;
+  padding: 12px 22px;
   font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: larger;
+  }
+
+#btn-home-banner:hover {
+  background: linear-gradient(90deg, #FFF, #576BB1);
   }
 
   #btn-home-last-section {
@@ -163,3 +170,21 @@
     margin: 0;
     width: fit-content;
   }
+
+.btn-squared-white {
+  color: $white;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border: 1px solid $white;
+  transition: background 0.3s ease;
+  width: fit-content;
+  height: fit-content;
+}
+.btn-squared-white:hover {
+  background: $white;
+  letter-spacing: 3px;
+  // border: 1px solid $white;
+}

@@ -1,33 +1,26 @@
 .banner-home {
   padding: 20px 0;
-  height: 100vh;
+  height: 93vh;
   background: $dark-blue;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-
 .banner p {
-  font-size: 20px;
+  font-size: 12px;
   color: white;
-  opacity: .7;
+  // opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 #h1-home-banner {
-  font-size: 45px;
+  font-size: 2rem;
   color: white;
   font-weight: normal;
-  font-family: 'Darker Grotesque', sans-serif;
+  font-family: $body-font;
   font-weight: normal;
-  line-height: 7vh;
+  letter-spacing: .2rem;
+  line-height: 2.5rem;
   padding-bottom: 15px;
-  width: 50%;
+  width: 60%;
 }
 
 #p-home-banner {
@@ -40,6 +33,10 @@
 }
 
 .logo-home-banner {
-  width: 600px;
-  height: 190px;
+  width: 65vw;
+  margin-bottom: 2rem;
+}
+
+.italic {
+  font-style: italic;
 }
