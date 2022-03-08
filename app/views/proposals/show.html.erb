@@ -1,18 +1,20 @@
-<div class="container-show">
-  <div class="proposal-progress-container row">
-    <div class="proposal-section col-6">
+<div class="container-show p-5">
+  <div class="proposal-progress-container d-flex justify-content-between pr-5 pt-5 pl-5">
+    <div class="proposal-section mr-3">
       <div class="proposal-box">
         <div class="titles">
-          <h2><%= @proposal.title %></h2>
-
-          <%= link_to edit_proposal_path(@proposal), class: "edit-icon" do%>
+          <h2><%= @proposal.title %>
+            <span> <%= link_to edit_proposal_path(@proposal), id: "edit-icon" do%>
             <i class="fi fi-rs-edit"></i>
-          <% end %>
+            <% end %>
+            </span>
+          </h2>
+
         </div>
-        <div class="proposal-description-details">
+        <div class="proposal-description-details mt-5">
           <h4>Description</h4>
           <p><%= @proposal.description %></p>
-          <div class="proposal-details d-flex justify-content-between">
+          <div class="proposal-details d-flex justify-content-between mt-4">
             <div class="proposal-status">
               <h4>Status</h4>
               <p><%= @proposal.status  %></p>
@@ -26,76 +28,62 @@
               <p><%=@proposal.due_date %></p>
             </div>
           </div>
-
-
         </div>
       </div>
+    </div>
+    <div class="progress-section ml-3">
+      <div class="progress-steps blue-box p-3 mb-5">
+        <h3><i class="fi fi-rs-time-past pb-3"></i> Progress:</h3>
+        <div class="step-list">
+          <p class="step-container"><span class="blue-p"><%= @proposal.creator.first_name %></span> initiated on <span class="blue-p"><%= @proposal.created_at.strftime("%e %b %Y") %></span></p>
 
-      <% if @proposal.steps.first %>
-        <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
-        <div>
-          <p>You are the final approver of the proposal! Please add a new approver if necessary or confirm proposal approval</p>
-          <p>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow) %></p>
-          <p> <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white  mt-2" %></p>
+          <% if @ordered_steps %>
+            <% @ordered_steps.each_with_index do |step, i| %>
+            <div class="step-container">
+              <p>
+                <span class="blue-p">Step <%= i + 1 %></span> | Approver: <span class="blue-p"><%= step.approver.first_name %></span> |  Status: <span class="blue-p"><%= step.status %></span>
+                <% if step.logs %>
+                  <% step.logs.each do |log| %>
+                  on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") %></span></p>
+                  <% end %>
+                <% end %>
+              </p>
+            </div>
+            <% end %>
+          <% end %>
+
+          <% if @proposal.approval_flow %>
+            <div class="with-created-approval mt-4">
+              <h4>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow), class: ""%></h4>
+            </div>
+          <% end %>
         </div>
-        <% end  %>
-      <% end  %>
-
-      <% if @proposal.status == "approved"  %>
-        <h1> 🎉 The proposal is approved 🎉 </h1>
-      <%end %>
       </div>
-    <div class="empty-section col-1">
+      <div class="approval-flow-actions d-flex align-items-center justify-content-around">
+      <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
+        <div class="approval-flow-start">
+            <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
+      <% end %>
     </div>
-    <div class="progress-section col-4">
-        <div class="progress-steps blue-box p-3">
-          <h3><i class="fi fi-rs-time-past pb-3"></i> Progress:</h3>
-          <div class="step-list">
-            <div class="step-container"><%= @proposal.creator.first_name %> initiated on <%= @proposal.created_at.strftime("%e %b %Y") %></div>
-
-            <% if @ordered_steps %>
-              <% @ordered_steps.each_with_index do |step, i| %>
-
-              <div class="step-container"><span class="progress-dates-color">Step <%= i + 1 %> - Approver: <%= step.approver.first_name %> - Status: <%= step.status %></span>
-              <% if step.logs %>
-                <% step.logs.each do |log| %>
-                <p>Step changed from <span class="progress-dates-color"><%= log.original_status %> </span> to <span class="progress-dates-color"><%= log.updated_status %></span> on <%= log.created_at.strftime("%e %b %Y")  %></p>
-                <% end  %>
-              <% end %>
-              </div>
-              <%end%>
-            <% end  %>
-          </div>
+    <div class="approval-flow-if-created">
+      <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
+        <div class="">
+          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
         </div>
-
-    </div>
-    <div class="approval-flow-actions d-flex mt-3 justify-content-between align-items-center mb-3">
-      <div class="approval-flow-if-created">
-        <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-          <div class="p-3">
-            <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
-          </div>
         <% else %>
-          <div class="with-created-approval justify-content-start flex-grow-1">
-            <h4>Approval Flow: <%= link_to @proposal.approval_flow.name, approval_flow_path(@proposal.approval_flow), class: ""%></h4>
+          <div class="">
+            <%= link_to "Add approvers", "#", class: "btn-flat-white col-2" %>
           </div>
-        <% end %>
-      </div>
-      <div class="approval-flow-start p-3">
-        <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@proposal.steps.first.status == "created") && (@proposal.creator == current_user) %>
-              <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
-        <% end %>
-      </div>
-      <div class="p-3">
-        <%= link_to "Add approvers", "#", class: "btn-flat-white col-2" %>
-      </div>
+      <% end %>
+    </div>
+  </div>
     </div>
   </div>
 
-  <div class="comments row">
+  <div class="buttons-and-comments row mt-3">
     <% if @action_step  %>
     <div class="actions-secction">
-        <h2 class="action-header mt-3 mb-5">What do you want to do?</h2>
+        <h2 class="action-header mt-5 mb-5">What do you want to do?</h2>
         <div class="buttons-approve mb-5">
           <%= link_to "Approve", step_approve_path(@action_step), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "btn-green-approve" %>
 
@@ -108,7 +96,7 @@
         <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" } %>
       <% end  %>
 
-        <%# --- modal --- %>
+      <%# --- modal --- %>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -129,37 +117,56 @@
     </div>
   </div>
 
+    <div class="approved-section">
+      <% if @proposal.status == "approved"  %>
+      <div class="final-approval-section text-center m-5">
+        <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
+        </div>
+      <%end %>
+
+      <% if @proposal.steps.first %>
+        <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
+          <div class="final-approval-section d-flex justify-content-satr align-items-center pl-5 pr-5 mt-3">
+            <div class="final-approval-text mr-5">
+              <h5>You are the final approver!</h5>
+              <h5>Please add a new approver if necessary or confirm the approval.</h5>
+            </div>
+            <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
+          </div>
+        <% end  %>
+      <% end  %>
+    </div>
+
   <% if @proposal.steps.first  %>
     <div class="comments-section">
-      <div class="add-comment-box mt-3 p-3">
+      <div class="add-comment-box mt-3">
         <h3>+ Add a comment</h3>
         <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
-                <%= f.input :content, label: "Your comment" %>
-                <%= f.submit "Post", class: "btn btn-flat-blue" %>
+              <div class="comment-form d-flex justify-content-start ">
+                <%= f.input :content, label: "", class: ""%>
+                <%= f.submit "post", class: "btn-flat-blue m-5" %>
+              </div>
         <% end %>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 
-        <% if @proposal.steps.first  %>
-    <div class="all-coments-box mt-3 p-3">
-          <h3>All Comments:</h3>
-        <% end  %>
-
+  <% if @proposal.steps.first  %>
+    <div class="all-coments-box mt-3 p-5">
+      <h3 class="mb-5">All Comments:</h3>
+  <% end  %>
           <% if @ordered_steps %>
             <% @ordered_steps.each do |step| %>
             <% if step.comments %>
-            <% step.comments.each do |comment| %>
+              <% step.comments.each do |comment| %>
                 <div class="comment-item mb-3 p-2">
-                  <h4>Posted by: <%= comment.user.first_name %> <%#= comment.user.last_name %> on <%= comment.created_at.strftime("%e %b %Y")  %></h4>
+                  <h5>Posted by <%= comment.user.first_name %> <%#= comment.user.last_name %> on <%= comment.created_at.strftime("%e %b %Y")  %></h5>
                   <p><%= comment.content %></p>
                 </div>
-              <% end %>
             <% end %>
-            <%end%>
-          <%end%>
-
+          <% end %>
+        <%end%>
+      <%end%>
       </div>
-
     </div>
   </div>
 </div>

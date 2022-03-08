@@ -26,12 +26,32 @@
 .all-coments-box {
   background-color: $light-blue;
 }
+.comment-form {
+  align-items: center;
+}
+
+.form-control {
+  // width: -webkit-fill-available
+  width: 360px;
+//   height: 100px;
+}
+
+.add-comment-box h3 {
+  margin:0;
+  margin-top: 32px;
+}
+
+.comments-section {
+  margin: auto;
+  width: 75vw;
+}
 
 .comment-item {
   list-style-type: none;
   background-color: white;
   width:80%;
   margin-top: 20px;
+  // margin:auto;
 }
 
 .step-container {
@@ -56,21 +76,41 @@
 }
 
 .approval-flow-actions {
-  // width:80vw;
-  // margin: 0px;
-  // padding: 0px;
-  // padding-left: 14px;
+  margin: auto;
 }
 
 .container-show {
   width: 80vw;
-  background-color: aqua;
+  // background-color: darkslategrey;
 }
 
-// .proposal-section {
-//   width: 60vw;
-// }
+.blue-p {
+  font-size: 16px;
+  color: $blue;
+  font-family: 'Trispace', sans-serif;
+  font-weight: 500;
+}
 
-// .progress-section {
-//   width: 40vw;
-// }
+.proposal-section {
+  width: 28vw;
+}
+
+.progress-section {
+  width: 36vw;
+}
+.progress-section .blue-p{
+  font-size: 12px;
+}
+.progress-section p{
+  font-size: 12px;
+}
+
+#edit-icon {
+  font-size: 28;
+  padding-left: 10px;
+}
+
+.approved-section {
+  margin:auto;
+  width: 75vw;
+}
