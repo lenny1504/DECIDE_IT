@@ -42,6 +42,7 @@ class ProposalsController < ApplicationController
     @ordered_steps = @proposal.approval_flow.steps.order('created_at asc') if @proposal.approval_flow
     @comment = Comment.new
     @user = current_user
+    @step = Step.new
   end
 
   def in_review_step_current_user(proposal)
