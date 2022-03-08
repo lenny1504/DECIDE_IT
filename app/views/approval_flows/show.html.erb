@@ -5,8 +5,9 @@
       <p><%= link_to @approval_flow.proposal.title, proposal_path(@approval_flow.proposal)%></p>
       <h2>Description </h2>
       <p><%= @approval_flow.description%></p>
+      <%= link_to "Bak to Proposal", proposal_path(@proposal), class: "btn btn-flat-white ", style: "margin:auto; margin-top: 15px;" %>
   </div>
-  <div class="container d-flex flex-column">
+  <div class="container d-flex flex-column justify-content-between">
     <div class="container d-flex">
         <i class="fas fa-history blue" style="font-size: 30px; padding-top: 9px; padding-right: 8px"></i>
         <h1 class="blue">Approvers</h1>
@@ -34,7 +35,7 @@
           </div>
         <%end%>
     </div>
-    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn btn-home-white ", id: "btn-home-value-prop", style: "margin:auto" %>
+    <%= link_to "Add Approver", new_proposal_approval_flow_step_path(@proposal, @approval_flow), data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn btn-flat-white ", style: "width: fit-content;margin-left: auto;margin-right: auto;" %>
   </div>
 </div>
 
@@ -57,5 +58,3 @@
     </div>
   </div>
 </div>
-
-<p><%= link_to "Add approvers", new_proposal_approval_flow_step_path(@proposal, @approval_flow) %></p>

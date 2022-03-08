@@ -21,7 +21,7 @@
             </div>
             <div class="proposal-budget">
               <h4>Budget</h4>
-              <p><%=@proposal.budget %>€</p>
+              <p><%=@proposal.budget.round %>€</p>
             </div>
             <div class="proposal-due-date">
               <h4>Due date </h4>
@@ -40,7 +40,7 @@
         <h3><i class="fi fi-rs-time-past pb-3"></i> Progress:</h3>
         <div class="step-list">
           <div class="step-container">
-            <p style="margin:0;"> <i class="fas fa-square green "> </i><span class="blue-p"> 1.<%= @proposal.creator.first_name %></span> created on <span class="blue-p"><%= @proposal.created_at.strftime("%e %b %Y") %></span></p>
+            <p style="margin:0;"> <i class="fas fa-square green "> </i><span class="blue-p"> 1.<%= @proposal.creator.first_name %> <%= @proposal.creator.last_name[0] %>. </span> created on <span class="blue-p"><%= @proposal.created_at.strftime("%e %b %Y") %></span></p>
           </div>
           <% if @ordered_steps %>
             <% @ordered_steps.each_with_index do |step, i| %>
@@ -59,7 +59,7 @@
                   <% color = "yellow" %>
               <% end %>
             <div class="step-container">
-              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %></span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
+              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
                 <%# <% if step.logs %>
                   <%# <% step.logs.each do |log| %>
                   <%# on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") </span></p>%>
@@ -182,8 +182,8 @@
         <h3>+ Add a comment</h3>
         <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
               <div class="comment-form d-flex justify-content-start ">
-                <%= f.input :content, label: "", class: ""%>
-                <%= f.submit "post", class: "btn-flat-blue m-5" %>
+                <%= f.input :content, label: "", wrapper_html: { class: 'd-flex flex-row-reverse' }, label_html: { style: "display: none" } %>
+                <%= f.submit "post", class: "btn-flat-blue ml-2", style: "margin-left: 20px !important;" %>
               </div>
         <% end %>
     </div>
