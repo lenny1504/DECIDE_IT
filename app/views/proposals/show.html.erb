@@ -55,7 +55,7 @@
                   <% color = "yellow" %>
               <% end %>
             <div class="step-container">
-              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span> | Approver: <span class="blue-p"><%= step.approver.first_name %></span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
+              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %></span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
                 <%# <% if step.logs %>
                   <%# <% step.logs.each do |log| %>
                   <%# on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") </span></p>%>
