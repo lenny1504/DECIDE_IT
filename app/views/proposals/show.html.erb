@@ -119,12 +119,16 @@
 
     <div class="approved-section">
       <% if @proposal.status == "approved"  %>
-        <div class="actions-secction">
-          <div class="final-approval-section text-center m-5">
+        <div class="end-message-approval-section d-flex flex-column justify-content-start align-items-center p-5 mt-3">
             <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
-          </div>
         </div>
       <%end %>
+      <% if @proposal.status == "rejected"  %>
+        <div class="end-message-approval-section d-flex flex-column justify-content-start align-items-center p-5 mt-3">
+            <h3> The proposal has been rejected. </h3>
+        </div>
+      <%end %>
+
 
       <% if @proposal.steps.first %>
         <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
