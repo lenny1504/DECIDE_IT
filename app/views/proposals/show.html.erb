@@ -176,8 +176,8 @@
         <h3>+ Add a comment</h3>
         <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
               <div class="comment-form d-flex justify-content-start ">
-                <%= f.input :content, label: "", class: ""%>
-                <%= f.submit "post", class: "btn-flat-blue m-5" %>
+                <%= f.input :content, label: "", wrapper_html: { class: 'd-flex flex-row-reverse' }, :label_html => { :style => "display: none" } %>
+                <%= f.submit "post", class: "btn-flat-blue ml-2", style: "margin-left: 20px !important;" %>
               </div>
         <% end %>
     </div>
