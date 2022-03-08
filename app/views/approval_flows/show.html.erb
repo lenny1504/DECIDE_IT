@@ -5,12 +5,12 @@
       <p><%= link_to @approval_flow.proposal.title, proposal_path(@approval_flow.proposal)%></p>
       <h2>Description </h2>
       <p><%= @approval_flow.description%></p>
-      <%= link_to "Bak to Proposal", proposal_path(@proposal), class: "btn btn-flat-white ", style: "margin:auto; margin-top: 15px;" %>
+      <%= link_to "Back to Proposal", proposal_path(@proposal), class: "btn btn-flat-white ", style: "margin:auto; margin-bottom: 0;" %>
   </div>
   <div class="container d-flex flex-column justify-content-between">
     <div class="container d-flex">
-        <i class="fas fa-history blue" style="font-size: 30px; padding-top: 9px; padding-right: 8px"></i>
-        <h1 class="blue">Approvers</h1>
+        <i class="fas fa-history blue" style="font-size: 30px; padding-top: 9px; padding-right: 8px;"></i>
+        <h1 class="blue" style="font-weight: normal;">Approvers</h1>
     </div>
     <div class="container d-flex flex-column">
         <% @ordered_steps.each_with_index do |step, i| %>
