@@ -119,20 +119,22 @@
 
     <div class="approved-section">
       <% if @proposal.status == "approved"  %>
-      <div class="final-approval-section text-center m-5">
-        <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
+        <div class="actions-secction">
+          <div class="final-approval-section text-center m-5">
+            <h3> 🎉 Congratulations! The proposal is approved! 🎉 </h3>
+          </div>
         </div>
       <%end %>
 
       <% if @proposal.steps.first %>
         <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
-          <div class="final-approval-section d-flex justify-content-satr align-items-center pl-5 pr-5 mt-3">
-            <div class="final-approval-text mr-5">
-              <h5>You are the final approver!</h5>
-              <h5>Please add a new approver if necessary or confirm the approval.</h5>
+            <div class="final-approval-section d-flex flex-column justify-content-start align-items-center pl-5 pr-5 mt-3">
+              <%# <div class="final-approval-text mr-5"> %>
+                <h4 class="final-approval-header mt-5 mb-3 p-2" style="text-align:center;" >You are the final approver of this proposal! <br>  Please add a new approver if necessary or confirm the approval.</h4>
+                <%# <h5>Please add a new approver if necessary or confirm the approval.</h5> %>
+                <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
+              <%# </div> %>
             </div>
-            <%= link_to "Confirm final approval", proposal_approve_path(@proposal), method: "patch", class: "btn-flat-white m-5" %>
-          </div>
         <% end  %>
       <% end  %>
     </div>
