@@ -1,20 +1,28 @@
 <div>
 <div class="descriptive-items">
-<p></p>
-<p>Description</p>
-<p>Creator</p>
-<p>Activity</p>
-<p>Status</p>
+      <p style="width: 50%">Title</p>
+      <%# <p style="width: 25%">Description</p> %>
+      <p style="width: 20%">Creator</p>
+      <p style="width: 15%">Activity</p>
+      <p style="width: 15%">Status</p>
 </div>
 <% @proposals.each do |proposal| %>
   <%#= link_to proposal_path(proposal) %>
     <div class="card-proposal mb-4" >
       <div class="card-proposal-info-top">
-        <h2><%= link_to proposal.title, proposal_path(proposal), id: ""%></h2>
-        <p><%= proposal.description%></p>
-        <p class="bd-highlight"><%= proposal.creator.email %></p>
-        <p class="bd-highlight"> <%= proposal.created_at.strftime("%e %b %Y") %></p>
-        <p class="bd-highlight"> <%= proposal.status %></p>
+        <% if proposal.title.length > 40 %>
+             <h4 style="width: 50%"><%= link_to "#{proposal.title.first(40)}...", proposal_path(proposal)%></h4>
+        <% else %>
+            <h4 style="width: 50%"><%= link_to proposal.title, proposal_path(proposal)%></h4>
+        <% end %>
+         <%# <% if proposal.title.length > 20 %>
+             <%# <p style="width: 25%"><%= "#{proposal.description.first(20)}..."</p> %>
+        <%# <% else %>
+            <%# <p style="width: 25%"><%= proposal.description</p> %>
+        <%# <% end %>
+        <p class="bd-highlight" style="width: 20%"><%= proposal.creator.first_name %> <%= proposal.creator.last_name %></p>
+        <p class="bd-highlight" style="width: 15%"> <%= proposal.created_at.strftime("%e %b %Y") %></p>
+        <p class="bd-highlight" style="width: 15%"> <%= proposal.status %></p>
 
         <% link_to "Proposal Page", proposal_path(proposal) %>
       </div>
