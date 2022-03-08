@@ -65,16 +65,12 @@
             <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
       <% end %>
     </div>
-    <div class="approval-flow-if-created">
+    <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-        <div class="">
-          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white" %>
-        </div>
+          <%= link_to  "Create Approval Flow", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white mb-3" %>
       <% end %>
       <% if @proposal.status == "initiated" || @proposal.status == "in review" %>
-          <div class="">
-            <%= link_to "Add approvers", "#", class: "btn-flat-white col-2" %>
-          </div>
+          <%= link_to "Add approvers", "#", class: "btn-flat-white col-2", style: "width: fit-content;" %>
       <% end %>
     </div>
   </div>
