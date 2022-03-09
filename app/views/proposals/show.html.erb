@@ -132,7 +132,7 @@
         </div>
       <% end  %>
       <% if @proposal.creator == current_user && (@proposal.steps.count {|step| step.status == "change request"} >= 1) %>
-        <%= link_to "Changes done", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "buttons-approve mb-5 btn-green-approve", style: "width: fit-content; margin: auto; padding: 8px 22px; font-size: 24px" %>
+        <%= link_to "Submit changes", step_new_review_path(@proposal.steps.find {|step| step.status == "change request"}), method: "patch", data: { bs_toggle: "modal", bs_target:"#exampleModal" }, class: "buttons-approve mb-5 btn-green-approve", style: "width: fit-content; margin: auto; padding: 8px 22px; font-size: 24px" %>
       <% end  %>
 
       <%# --- modal --- %>
