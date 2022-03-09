@@ -1,6 +1,6 @@
 .bg-testimonials {
-  background-color: $light-blue;
-  height: 93vh;
+  background-color: $blue;
+  height: 88vh;
   width: 100vw;
   margin:0;
 }
@@ -15,17 +15,18 @@
   flex-direction: column;
   width: 40%;
   position: relative;
-  top: 34px;
+  top: -7px;
 }
 
 .client-text-container {
   position: relative;
   height: 80%
+
 }
 
 .client-text-container img{
-  height: 50px;
-  width: 50px;
+  height: 62px;
+  width: 62px;
   position: relative;
   top: 18px;
 }
@@ -37,6 +38,7 @@
 
 .header-text p{
   // font-size: 26px;
+  color: white;
   font-weight: lighter;
 }
 
@@ -53,6 +55,8 @@
   // flex-direction: column;
   width: 40%;
   height: 80%;
+  top: -72px;
+  right: -122px;
 }
 
 .bg-square img{
@@ -63,7 +67,8 @@
   position: absolute;
   left: 18px;
   top: 217px;
-  box-shadow: 100px -110px $white;
+  box-shadow: 72px -88px $light-blue;
+  // border: 3px solid $white;
 }
 
 .bg-testimonials a {

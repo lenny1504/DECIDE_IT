@@ -20,13 +20,16 @@
 
 #home-value-prop-info {
   position: sticky;
-  top: 32px;
+  top: 208px;
   height:fit-content;
-  h2 {
-    font-size: 40px;
-    color: $dark-blue;
-  }
 }
+
+#home-value-header {
+    font-size: 3rem;
+    color: $dark-blue;
+    font-family: 'Aleo', serif;
+    text-align: right;
+  }
 
 .card-benefits-home {
   // border-bottom: 1px solid lightgray ;
@@ -42,9 +45,43 @@
   }
 }
 
+.image-card-home {
+  height: 200px;
+  width: 200px;
+}
+
+.actions-section {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
+  padding: 4px;
+  margin: auto;
+  width: 60%;
+}
+
+.branding-quality > p {
+  line-height: 24px;
+  font-size: 22px;
+  color: $dark-blue;
+}
+
+.branding-quality > h2 {
+  line-height: 26px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.free-trial-banner {
+  background-color: $light-blue;
+  height: 82vh;
+}
+
+.logo-home-last-section {
+  width: 50vw;
+  margin-bottom: 2rem;
+}
+
 #home-last-section {
   height: auto;
-  background: #CEDBEE;
   padding: 120px 0px;
   width: max-content;
   h2 {
@@ -59,22 +96,4 @@
     color: $dark-blue;
     font-weight: lighter;
   }
-}
-
-.image-card-home {
-  height: 200px;
-  width: 200px;
-}
-
-.logo-home-last-section {
-  width: 550px;
-  height: 200px;
-}
-
-.actions-section {
-  border: 1px solid $blue;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
-  padding: 4px;
-  margin: auto;
-  width: 60%;
 }

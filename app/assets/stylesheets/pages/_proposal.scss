@@ -29,13 +29,14 @@
   border: 1px solid #576BB1;
   box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
 }
+
 .comment-form {
   align-items: flex-start;
 }
 
-#comment_content {
-  width: 50vw;
-}
+// #comment_content {
+//   width: 50vw;
+// }
 
 // resizes all the text input boxes in all the forms
 // .form-control {
@@ -144,4 +145,8 @@
   box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
   padding: 4px;
   margin: auto;
+}
+
+a > i {
+  font-size: 22px;
 }
