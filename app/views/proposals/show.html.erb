@@ -67,7 +67,7 @@
                   <% color = "yellow" %>
               <% end %>
             <div class="step-container">
-              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
+              <p style="margin:0;line-height: 15px;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
                 <%# <% if step.logs %>
                   <%# <% step.logs.each do |log| %>
                   <%# on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") </span></p>%>
@@ -88,7 +88,7 @@
       <div class="approval-flow-actions d-flex align-items-center justify-content-around">
       <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@ordered_steps.first.status == "created") && (@proposal.creator == current_user) %>
         <div class="approval-flow-start">
-            <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
+            <%= link_to "Start Approval Flow", step_start_path(@ordered_steps.first), method: "patch", class: "btn-flat-white"%>
       <% end %>
     </div>
     <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
@@ -147,7 +147,7 @@
                 <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first)  %>
                   <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
                         <%= f.input :content, label: "Your comment" %>
-                        <%= f.submit "Post", class: "btn-btn-primary" %>
+                        <%= f.submit "Post", class: "btn btn-primary" %>
                   <%end%>
                 <% end %>
           </div>
@@ -170,7 +170,7 @@
 
 
       <% if @proposal.steps.first %>
-        <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.last.status == "approved") && (@proposal.status != "approved") %>
+        <% if (@proposal.steps.order('created_at asc').last.approver == current_user) && (@proposal.steps.order('created_at asc').last.status == "approved") && (@proposal.status != "approved") %>
             <div class="final-approval-section d-flex flex-column justify-content-start align-items-center pl-5 pr-5 mt-3">
               <%# <div class="final-approval-text mr-5"> %>
                 <h4 class="final-approval-header mt-5 mb-3 p-2" style="text-align:center;" >You are the final approver of this proposal. <br>  Please add a new approver if necessary or confirm the approval.</h4>
