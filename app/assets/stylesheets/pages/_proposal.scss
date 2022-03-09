@@ -34,10 +34,6 @@
   align-items: flex-start;
 }
 
-// #comment_content {
-//   width: 50vw;
-// }
-
 // resizes all the text input boxes in all the forms
 // .form-control {
 //   width: 100%;
@@ -63,15 +59,12 @@
 
 .step-container {
   background-color: white;
-  height: 30px;
   width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 7px 20px;
   margin-bottom: 10px;
   line-height: 0px;
   display: flex;
   align-items: center;
-  width: max-content;
 }
 
 .action-header {
@@ -106,7 +99,7 @@
   width: 32vw;
 }
 .proposal-box {
-  width: max-content;
+  // width: max-content;
 }
 
 .progress-section {
