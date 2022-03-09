@@ -88,7 +88,7 @@
       <div class="approval-flow-actions d-flex align-items-center justify-content-around">
       <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@ordered_steps.first.status == "created") && (@proposal.creator == current_user) %>
         <div class="approval-flow-start">
-            <%= link_to "Start Approval Flow", step_start_path(@proposal.steps.first), method: "patch", class: "btn-flat-white"%>
+            <%= link_to "Start Approval Flow", step_start_path(@ordered_steps.first), method: "patch", class: "btn-flat-white"%>
       <% end %>
     </div>
     <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
