@@ -112,7 +112,7 @@
       <div class="modal-body">
         <% if @proposal.approval_flow %>
           <%= simple_form_for [@proposal, @proposal.approval_flow, @step] do |f| %>
-              <%= f.input :approver, label: "Approver email" %> <%# We need to give the possibilty to chose among created users? or just input the email? %>
+              <%= f.input :approver, label: "Approver email", collection: User.all.map { |user| user.email } %>
               <%= f.submit "Add Approver", class: "btn btn-primary" %>
           <%  end %>
         <% end %>
