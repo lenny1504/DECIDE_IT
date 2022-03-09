@@ -67,7 +67,7 @@
                   <% color = "yellow" %>
               <% end %>
             <div class="step-container">
-              <p style="margin:0;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
+              <p style="margin:0;line-height: 15px;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
                 <%# <% if step.logs %>
                   <%# <% step.logs.each do |log| %>
                   <%# on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") </span></p>%>
@@ -147,7 +147,7 @@
                 <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first)  %>
                   <%= simple_form_for [@proposal, @proposal.approval_flow, @proposal.approval_flow.steps.first, @comment] do |f| %>
                         <%= f.input :content, label: "Your comment" %>
-                        <%= f.submit "Post", class: "btn-btn-primary" %>
+                        <%= f.submit "Post", class: "btn btn-primary" %>
                   <%end%>
                 <% end %>
           </div>
