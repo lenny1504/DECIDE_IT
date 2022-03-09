@@ -11,16 +11,18 @@ table {
 table td {
   padding: 1rem;
   text-align: left;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
 tbody tr{
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid rgb(255, 255, 255);
+  border-right: 1px solid rgb(255, 255, 255);
 }
 
 th{
   padding: 1rem;
+  color: $dark-blue;
+
 }
 .p-tag-dashboard {
   font-size: large;
