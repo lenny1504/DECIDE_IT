@@ -1,12 +1,13 @@
 <div style="background-color: #0E1B4C">
   <div class="banner-home container d-flex flex-column justify-content-center align-items-baseline" style="">
       <%= image_tag "logo-decide-it-long.svg", class: "logo-home-banner"%>
-      <h1 id="h1-home-banner">Efficient <span class="italic">decision making</span>, prepare your projects for <span class="italic">success.</span></h1>
+      <h1 id="home-banner-header">Prepare your <span class="italic">projects for success.</span></h2>
+      <h2 id="home-banner-header">Enhance <span class="italic">decision making.</span></h2>
       <%# <p id="p-home-banner">A new way of working. Stay agile. Stay aligned.</p> %>
         <% if user_signed_in?  %>
-          <%= link_to "Try Decide.it", dashboard_path, class: "btn-flat-blue", id: "btn-home" %>
+          <%= link_to "Try Decide.it", dashboard_path, class: "btn-flat-white", id: "btn-home" %>
         <% else  %>
-          <%= link_to "Try Decide.it", new_user_session_path, class: " btn-flat-blue", id: "btn-home" %>
+          <%= link_to "Try Decide.it", new_user_session_path, class: " btn-flat-white", id: "btn-home" %>
         <% end  %>
   </div>
 </div>

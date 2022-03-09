@@ -1,8 +1,9 @@
 .blue-box{
   border: 1px solid $blue;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
   padding: 4px;
   background-color: $light-blue;
+  width: max-content;
 }
 
 .progress-section li{
@@ -23,17 +24,14 @@
   justify-content: space-evenly;
 }
 
-.all-coments-box {
+.all-comments-box {
   background-color: $light-blue;
   border: 1px solid #576BB1;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
-}
-.comment-form {
-  align-items: flex-start;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
 }
 
-#comment_content {
-  // width: 50vw;
+.comment-form {
+  align-items: flex-start;
 }
 
 // resizes all the text input boxes in all the forms
@@ -54,14 +52,13 @@
 .comment-item {
   list-style-type: none;
   background-color: white;
-  width:80%;
+  width: 100%;
   margin-top: 20px;
   // margin:auto;
 }
 
 .step-container {
   background-color: white;
-  // height: 30px;
   width: 100%;
   padding: 7px 20px;
   margin-bottom: 10px;
@@ -74,9 +71,9 @@
   text-align: center;
 }
 
-.actions-secction {
+.actions-section {
   border: 1px solid $blue;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
   padding: 4px;
   margin: auto;
   width: 60%;
@@ -101,6 +98,9 @@
 .proposal-section {
   width: 32vw;
 }
+.proposal-box {
+  // width: max-content;
+}
 
 .progress-section {
   width: 36vw;
@@ -124,7 +124,7 @@
 
 .final-approval-section {
   border: 1px solid $blue;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
   padding: 4px;
   margin: auto;
   width: 60%;
@@ -135,7 +135,11 @@
 
 .end-message-approval-section {
   border: 1px solid $blue;
-  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.25);
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
   padding: 4px;
   margin: auto;
+}
+
+a > i {
+  font-size: 22px;
 }
