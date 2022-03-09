@@ -7,10 +7,14 @@
   display: flex;
   justify-content: space-between;
   padding-right: 15px;
+  p {
+    color: $blue;
+  }
 }
 .card-proposal-info-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card-proposal-info-top h2 {

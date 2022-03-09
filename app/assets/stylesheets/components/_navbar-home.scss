@@ -4,16 +4,37 @@
   background: $dark-blue;
 }
 
-.navbar-lewagon-home .navbar-collapse-home {
-  // flex-grow: 0;
-}
-
-.navbar-lewagon-home .navbar-brand-home img {
-  width: 40px;
-}
-
-.navbar-lewagon-home a {
+.navbar-lewagon-home .fi {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.navbar-lewagon-home .fi:hover {
+  color: $blue;
+  letter-spacing: 3px;
+}
+
+// .btn-squared-white i {
+//   color: white;
+//   font-size: 14px;
+// }
+
+.home-btn {
+  color: white;
+  font-size: 14px;
+  margin-right: 1.5rem;
+}
+.home-btn a:hover {
+  background: $white;
+  color: $blue;
+  letter-spacing: 0;
+}
+
+.home-nav-items {
+  min-width: fit-content;
 }

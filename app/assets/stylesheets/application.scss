@@ -19,13 +19,13 @@ h1 {
   font-size: 36px;
   font-weight: 600;
   color: $dark-blue;
-  font-family: $headers-font;
+  font-family: 'Poppins', sans-serif;
 }
 
 h2 {
   font-size: 28px;
   color: $dark-blue;
-  font-family: $headers-font;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -38,7 +38,7 @@ h3 {
 h4 {
   font-size: 18px;
   color: $dark-blue;
-  font-family: $headers-font;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
 
@@ -54,7 +54,7 @@ p {
   font-weight: 400;
   letter-spacing: 1px;
   color: $black;
-  font-family: $body-font;
+  font-family: 'Aleo', serif;
 }
 
 a {
@@ -67,6 +67,9 @@ a:hover {
   color: $dark-blue;
 }
 
+i {
+  font-style: normal !important;
+}
 
 .side-container {
   width:94%;

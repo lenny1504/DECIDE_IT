@@ -1,0 +1,49 @@
+.banner-home {
+  padding: 20px 0;
+  height: 93vh;
+  background: $dark-blue;
+}
+
+.banner p {
+  font-size: 12px;
+  color: white;
+  // opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#home-banner-header {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: normal;
+  font-family: $body-font;
+  font-weight: normal;
+  letter-spacing: .2rem;
+  line-height: 2.5rem;
+  // padding-bottom: 8px;
+  width: 60%;
+}
+
+.logo-home-banner {
+  width: 65vw;
+  margin-bottom: 2.5rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+#btn-home {
+  color: $dark-blue;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: 3px solid $dark-blue;
+}
+#btn-home:hover {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: white;
+  border: 3px solid $white;
+  // color: $dark-blue;
+}

@@ -2,32 +2,34 @@
 
 .home-value-prop {
   height: auto;
-  padding: 60px 0px;
-   h2 {
+  margin-top: 32px;
+  h2 {
     font-size: 20px;
-    font-weight: lighter;
-    color: $dark-blue;
     // padding-right: 50px;
     // width: 30vw;
-   }
-   div {
-     width: 35vw;
-     margin: 8px 0px;
-     padding-bottom: 12px;
-   }
-   p {
+  }
+  div {
+    width: 35vw;
+    margin: 8px 0px;
+    padding-bottom: 12px;
+  }
+  p {
     font-size: 14px;
   }
 }
 
 #home-value-prop-info {
-  position: sticky; top: 55px;
+  position: sticky;
+  top: 208px;
   height:fit-content;
-  h2 {
-    font-size: 40px;
-    color: $dark-blue;
-  }
 }
+
+#home-value-header {
+    font-size: 3rem;
+    color: $dark-blue;
+    font-family: 'Aleo', serif;
+    text-align: right;
+  }
 
 .card-benefits-home {
   // border-bottom: 1px solid lightgray ;
@@ -37,28 +39,10 @@
   }
   h3 {
     font-size: 24px;
+    font-family: 'Poppins', sans-serif;
     color: $dark-blue;
     margin: 0px;
   }
-}
-
-#home-last-section {
-  height: auto;
-  background: #CEDBEE;
-  padding: 120px 0px;
-  width: max-content;
-   h2 {
-    font-size: 45px;
-    color: $dark-blue;
-    font-weight: lighter;
-    margin: auto;
-    padding-bottom: 20px;
-   }
-   p {
-    font-size: 18px;
-    color: $dark-blue;
-    font-weight: lighter;
-   }
 }
 
 .image-card-home {
@@ -66,7 +50,50 @@
   width: 200px;
 }
 
+.actions-section {
+  border: 1px solid $blue;
+  box-shadow: 3px 3px 5px rgba(14, 27, 76, 0.1);
+  padding: 4px;
+  margin: auto;
+  width: 60%;
+}
+
+.branding-quality > p {
+  line-height: 24px;
+  font-size: 22px;
+  color: $dark-blue;
+}
+
+.branding-quality > h2 {
+  line-height: 26px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.free-trial-banner {
+  background-color: $light-blue;
+  height: 82vh;
+}
+
 .logo-home-last-section {
-  width: 550px;
-  height: 200px;
+  width: 50vw;
+  margin-bottom: 2rem;
+}
+
+#home-last-section {
+  height: auto;
+  padding: 120px 0px;
+  width: max-content;
+  h2 {
+    font-size: 45px;
+    color: $dark-blue;
+    // font-weight: lighter;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+    color: $dark-blue;
+    font-weight: lighter;
+  }
 }
