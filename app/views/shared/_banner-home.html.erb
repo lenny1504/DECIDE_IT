@@ -7,7 +7,7 @@
         <% if user_signed_in?  %>
           <%= link_to "Try Decide.it", dashboard_path, class: "btn-flat-white", id: "btn-home" %>
         <% else  %>
-          <%= link_to "Try Decide.it", new_user_session_path, class: " btn-flat-white", id: "btn-home" %>
+          <%= link_to "Try Decide.it", new_user_registration_path, class: " btn-flat-white", id: "btn-home" %>
         <% end  %>
   </div>
 </div>
