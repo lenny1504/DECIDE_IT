@@ -30,10 +30,20 @@
   transition: background 0.3s ease;
   height: fit-content;
   width: fit-content;
+
 }
 .btn-flat-blue:hover {
   background: $white;
   color: $blue;
+}
+
+#btn_login{
+  input {
+    color:white
+  }
+  :hover{
+    color: black;
+  }
 }
 
 // APPROVE

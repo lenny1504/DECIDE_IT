@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
 Log.destroy_all
 Comment.destroy_all
 Step.destroy_all
@@ -38,7 +40,7 @@ p "Users seeded"
 
 proposal1 = Proposal.new(title: "40% Discount in first year license for important customer", description: "Discount needed to acquire new strategic customer. Big opportunity to expand in the organization.", scope: "Discount for year 1", due_date: Date.new(2022,5,10) , creator: user1 , status: "initiated")
 proposal1.save
-proposal2 = Proposal.new(title: "Quarterly team activity with my team", description: "Proposal to have one team activity per quarter for each team", scope: "Start with IT team and get feedback" , budget: "20 euros per person" , due_date: Date.new(2022,4,10), creator: user2 , status: "initiated")
+proposal2 = Proposal.new(title: "Quarterly team activity with my team", description: "Proposal to have one team activity per quarter for each team", scope: "Start with IT team and get feedback" , budget: "20 euros per person" , due_date: Date.new(2022,4,10), creator: user3 , status: "initiated")
 proposal2.save
 proposal3 = Proposal.new(title: "New feature for the Customer Dashboard", description: "The customer success team has received customer feedback of the need to improve the dashboard with real time data instead of every 24 hs" , scope: "Test for beta customer" , due_date: Date.new(4/6/2022) , creator: user6 , status: "initiated")
 proposal3.save
@@ -54,7 +56,7 @@ approval_flow3 = ApprovalFlow.new(name: "New feature for Dashboard" , descriptio
 approval_flow3.save
 p "approvals seeded"
 
-Step.create(approver: user2 , approval_flow: approval_flow1, status: "in review")
+Step.create(approver: user3 , approval_flow: approval_flow1, status: "in review")
 Step.create(approver: user8 , approval_flow: approval_flow1, status: "created")
 Step.create(approver: user6 , approval_flow: approval_flow1, status: "created")
 
@@ -63,8 +65,15 @@ Step.create(approver: user1 , approval_flow: approval_flow2, status: "created")
 Step.create(approver: user5 , approval_flow: approval_flow2, status: "created")
 Step.create(approver: user2 , approval_flow: approval_flow2, status: "created")
 
-Step.create(approver: user3 , approval_flow: approval_flow3, status: "created")
+Step.create(approver: user3 , approval_flow: approval_flow3, status: "in review")
 Step.create(approver: user10 , approval_flow: approval_flow3, status: "created")
 Step.create(approver: user9 , approval_flow: approval_flow3, status: "created")
 Step.create(approver: user7 , approval_flow: approval_flow3, status: "created")
 p "steps seeded"
+
+
+file1 = URI.open('https://res.cloudinary.com/dirssv0ei/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1646908007/development/profilelanding_nbng22.jpg')
+user1.photo.attach(io: file1, filename: 'pablo.png', content_type: 'image/jpg')
+
+file3 = URI.open('https://res.cloudinary.com/dirssv0ei/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1646908400/development/IMG_0100_ic9crf.jpg')
+user3.photo.attach(io: file3, filename: 'lenny.png', content_type: 'image/jpg')
