@@ -14,6 +14,10 @@
 @import "pages/index";
 
 // CSS for all the pages
+.body {
+  width: 100vw;
+  overflow: hidden;
+}
 
 h1 {
   font-size: 36px;
@@ -27,7 +31,6 @@ h2 {
   color: $dark-blue;
   font-family: 'Poppins', sans-serif;
 }
-
 
 h3 {
   font-size: 22px;
@@ -85,3 +88,4 @@ i {
 .page-container{
   display:flex;
 }
+

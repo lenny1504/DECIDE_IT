@@ -1,7 +1,8 @@
 <div class="container-show p-5">
   <div class="proposal-progress-container d-flex justify-content-between pr-5 pt-5 pl-5">
-    <div class="proposal-section mr-3">
-      <div class="proposal-box">
+
+    <div class="proposal-section mr-3 col-5">
+      <div class="proposal-box mr-2">
         <div class="titles">
           <h2><%= @proposal.title %>
             <span> <%= link_to edit_proposal_path(@proposal), id: "edit-icon" do%>
@@ -43,12 +44,14 @@
         </div>
       </div>
     </div>
-    <div class="progress-section ml-3">
+    <div class="col-1">
+    </div>
+    <div class="progress-section ml-3 col-6">
       <div class="progress-steps blue-box p-3 mb-5">
-        <h3><i class="fi fi-rs-time-past pb-3"></i> Progress:</h3>
+        <h3><i class="fi fi-rs-time-past pb-3" style="font-size: 16px" ></i> Progress:</h3>
         <div class="step-list">
           <div class="step-container">
-            <p style="margin:0;"> <i class="fas fa-square green "> </i><span class="blue-p"> 1.<%= @proposal.creator.first_name %> <%= @proposal.creator.last_name[0] %>. </span> created on <span class="blue-p"><%= @proposal.created_at.strftime("%e %b %Y") %></span></p>
+            <p> <i class="fas fa-square green" id="status-color-icon"> </i><span class="blue-p" > 1. </span> Created by <span class="blue-p"> <%= @proposal.creator.first_name %> <%= @proposal.creator.last_name[0] %>. </span> on <span class="blue-p"><%= @proposal.created_at.strftime("%e %b %Y") %></span></p>
           </div>
           <% if @ordered_steps %>
             <% @ordered_steps.each_with_index do |step, i| %>
@@ -67,7 +70,7 @@
                   <% color = "yellow" %>
               <% end %>
             <div class="step-container">
-              <p style="margin:0;line-height: 15px;"> <i class="fas fa-square <%=color%>"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver: <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span> |  Status:  <span class="blue-p"><%= step.status %></span><span class="blue-p"> on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
+              <p> <i class="fas fa-square <%=color%>"  id="status-color-icon"></i> <span class="blue-p"><%= i + 2 %>.</span>  Approver <span class="blue-p"><%= step.approver.first_name %> <%= step.approver.last_name[0] %>. </span>  Status  <span class="blue-p"><%= step.status %></span><span class="blue-p" > on <%= step.updated_at.strftime("%e %b %Y") %></span></p>
                 <%# <% if step.logs %>
                   <%# <% step.logs.each do |log| %>
                   <%# on <span class="blue-p"><%= log.created_at.strftime("%e %b %Y") </span></p>%>
@@ -85,24 +88,25 @@
           <% end %>
         </div>
       </div>
-      <div class="approval-flow-actions d-flex align-items-center justify-content-around">
+      <div class="approval-flow-actions d-flex align-items-center justify-content-between flex-wrap">
       <% if (@proposal.approval_flow) && (@proposal.approval_flow.steps.first) && (@ordered_steps.first.status == "created") && (@proposal.creator == current_user) %>
         <div class="approval-flow-start">
-            <%= link_to "Start Approval Flow", step_start_path(@ordered_steps.first), method: "patch", class: "btn-flat-white"%>
+            <%= link_to "Start Approval Flow", step_start_path(@ordered_steps.first), method: "patch", class: "btn-flat-blue mb-3", style: " border: 3px solid $blue;", id: "start-btn"%>
       <% end %>
-    </div>
-    <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
-            <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white", style: "width: fit-content;" %>
-      <% end %>
-      <% if (@proposal.approval_flow) && (@proposal.status == "initiated" || @proposal.status == "in review") %>
-             <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2", style: "width: fit-content;" %>
-      <% end %>
+      </div>
+      <div class="approval-flow-if-created" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <% if @proposal.approval_flow.nil? && @proposal.creator == current_user %>
+              <%= link_to  "Add Approvers", new_proposal_approval_flow_path(@proposal), class: "btn-flat-white", style: "width: fit-content;" %>
+        <% end %>
+        <% if (@proposal.approval_flow) && (@proposal.status == "initiated" || @proposal.status == "in review") %>
+              <%= link_to "Add approvers", "#",data: { bs_toggle: "modal", bs_target:"#exampleModalStep" }, class: "btn-flat-white col-2", style: "width: fit-content;" %>
+        <% end %>
+      </div>
     </div>
   </div>
-    </div>
-  </div>
-  <div class="modal fade" id="exampleModalStep" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+
+<div class="modal fade" id="exampleModalStep" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
