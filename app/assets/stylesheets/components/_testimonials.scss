@@ -7,6 +7,7 @@
 
 .banner-testimonial {
   height: 93vh;
+  width: 100vw;
 }
 
 .testimonial-container {
@@ -21,14 +22,13 @@
 .client-text-container {
   position: relative;
   height: 80%
-
 }
 
 .client-text-container img{
   height: 62px;
   width: 62px;
   position: relative;
-  top: 18px;
+  top: 23px;
 }
 
 .header-text {
@@ -44,7 +44,8 @@
 
 .header-text h4{
   font-size: 26px;
-  font-weight: bold;
+  color: $white;
+  font-weight: 500;
   font-family: 'Aleo', serif;
 }
 
@@ -75,9 +76,18 @@
   color: $dark-blue;
   font-weight: 500;
   position:relative;
-  top: 84px;
+  top: 63px;
 }
 
 .bg-testimonials a:hover {
   color: white;
+}
+
+.testimonial-btn {
+  border: 3px solid $dark-blue;
+  padding: 10px 12px;
+}
+
+.testimonial-btn:hover {
+  border: 3px solid $white;
 }

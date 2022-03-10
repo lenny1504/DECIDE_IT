@@ -88,28 +88,38 @@
   // background-color: darkslategrey;
 }
 
-.blue-p {
-  font-size: 16px;
-  color: $blue;
-  font-family: 'Trispace', sans-serif;
-  font-weight: 500;
-}
-
 .proposal-section {
-  width: 32vw;
+  // min-width: 36vw;
 }
 .proposal-box {
+//  margin:
   // width: max-content;
+}
+.progress-steps {
+  width: 100%;
 }
 
 .progress-section {
-  width: 36vw;
+  // min-width: 38vw;
 }
+
 .progress-section .blue-p{
-  font-size: 12px;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: $blue;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 }
-.progress-section p{
-  font-size: 12px;
+.progress-section p {
+  font-size: 14px;
+  margin: 0;
+  line-height:16px;
+  font-family: "Poppins";
+}
+
+#status-color-icon {
+  margin-right: 10px;
+  font-size: 22px;
 }
 
 #edit-icon {
@@ -142,4 +152,10 @@
 
 a > i {
   font-size: 22px;
+}
+
+
+#start-btn {
+  border: 3px solid $blue;
+  padding: 16px 12px;
 }
