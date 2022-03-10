@@ -4,11 +4,11 @@
   <%= simple_form_for [@proposal] do |f| %>
   <div class="form-inputs">
       <%= f.input :title, label: "Proposal Title", placeholder: 'E.g. Veggie options in lunch menu' %>
-      <%= f.input :description, label: "Proposal Description", placeholder: 'E.g. I am vegetarian and it would be very nice to see some vegetarian options in the...' %>
+      <%= f.input :description, label: "Proposal Description", placeholder: 'E.g. I am vegetarian and it would be very nice to...' %>
       <%# <%= f.input :status, :collection => %w[initiated in_review approved rejected], :prompt => "Select the status"%>
       <%= f.input :scope, placeholder: 'E.g. Madrid office (optional)'%>
-      <%= f.input :budget,  placeholder: 'Expected investment needed for the project (optional)' %>
-      <%= f.input :due_date, as: :string, input_html: {class: "datepicker"} , label: "Due Date", placeholder: 'Required date of proposal approval'%>
+      <%= f.input :budget,  placeholder: 'E.g $10 (optional)' %>
+      <%= f.input :due_date, as: :string, input_html: {class: "datepicker"} , label: "Due Date", placeholder: 'E.g. 20/4/2022' %>
       <div data-preview-file-target="preview" class= "image-upload"></div>
       <%# <%= f.input :attached_docs, label: "Attached Files", as: :file, label_html: {data: {preview_file_target: "label"} }, input_html: { multiple: true, data: { action: "change->preview-file#show", preview_file_target: "input" } } %>
   </div>
